@@ -2,6 +2,7 @@ import os
 import math
 import requests
 import logging
+import datetime
 import pandas as pd
 from dotenv import load_dotenv
 import psycopg2 as pg
@@ -73,7 +74,7 @@ def extract_transactions(data):
                     area = math.floor(float(transaction.get('area')) * 10.764)
                     floor_range = transaction.get('floorRange')
                     no_of_units = transaction.get('noOfUnits')
-                    contract_date = transaction.get('contractDate')
+                    contract_date = format_date(transaction.get('contractDate'))
                     type_of_sale = transaction.get('typeOfSale')
                     price = float(transaction.get('price'))
                     property_type = transaction.get('propertyType')
@@ -90,6 +91,11 @@ def extract_transactions(data):
     finally:
         if conn is not None:
             conn.close()
+
+
+def format_date(dt_str):
+    dt = datetime.datetime.strptime(dt_str, '%m%y')
+    return dt
 
 
 if __name__ == '__main__':
