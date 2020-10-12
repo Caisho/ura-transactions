@@ -1,12 +1,9 @@
 import os
 import math
 import requests
-import logging
 import datetime
-import pandas as pd
 from dotenv import load_dotenv
 import psycopg2 as pg
-from psycopg2 import sql
 
 load_dotenv()
 URA_ACCESS_KEY = os.getenv('URA_ACCESS_KEY')
@@ -55,7 +52,7 @@ def get_private_residential_transactions(url, access_key, token, batch=1):
 
 
 def extract_transactions(data):
-    query = ('INSERT INTO public.private_residential_property_transactions'
+    query = ('INSERT INTO private_residential_property_transactions'
              ' (project, street, x, y, area, floor_range, no_of_units, contract_date, type_of_sale, price, property_type, district, type_of_area, tenure, psf)'
              ' VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
              ' ON CONFLICT DO NOTHING;')
