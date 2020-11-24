@@ -7,7 +7,8 @@ load_dotenv()
 URA_ACCESS_KEY = os.getenv('URA_ACCESS_KEY')
 URA_TOKEN_URL = os.getenv('URA_TOKEN_URL')
 URA_PROPERTY_URL = os.getenv('URA_PROPERTY_URL')
-ONEMAP_URL = os.getenv('ONEMAP_URL')
+ONEMAP_COORD_URL = os.getenv('ONEMAP_COORD_URL')
+ONEMAP_SEARCH_URL = os.getenv('ONEMAP_SEARCH_URL')
 POSTGRES_DB = os.getenv('POSTGRES_DB')
 POSTGRES_USER = os.getenv('POSTGRES_USER')
 POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
@@ -23,19 +24,28 @@ params = {
 }
 
 
-def get_coordinates(x=20276.794, y=31255.976):
+def get_xy_coordinates(x=20276.794, y=31255.976):
     payload = {'X': x, 'Y': y}
     r = requests.get(
-        url=ONEMAP_URL,
+        url=ONEMAP_COORD_URL,
         params=payload)
     if r.status_code == requests.codes.ok:
         return r.json()
     return None
 
 
+def get_street_coordinates(street='ORCHARD BOULEVARD'):
+    payload = {'searchVal': street, 'returnGeom': 'Y', 'getAddrDetails': 'N'}
+    r = requests.get(
+        url=ONEMAP_SEARCH_URL,
+        params=payload)
+    if r.status_code == requests.codes.ok:
+        return r.json().get('results')
+    return None
+
+
 def get_projects_table():
-    query = ('SELECT * FROM private_residential_property_projects'
-             ' WHERE x IS NOT NULL')
+    query = ('SELECT * FROM private_residential_property_projects')
     conn = None
     records = None
     try:
@@ -54,13 +64,20 @@ def get_projects_table():
 
 def update_project_coordinates():
     projects = get_projects_table()
+    query1 = ('UPDATE private_residential_property_projects'
+              ' SET x = %s, y = %s, latitude = %s, longitude = %s'
+              ' WHERE project = %s'
+              ' AND street = %s'
+              ' AND x IS NULL'
+              ' AND y IS NULL')
+
+    query2 = ('UPDATE private_residential_property_projects'
+              ' SET latitude = %s, longitude = %s'
+              ' WHERE project = %s'
+              ' AND street = %s'
+              ' AND x = %s'
+              ' AND y = %s')
     if projects:
-        query = ('UPDATE private_residential_property_projects'
-                 ' SET latitude = %s, longitude = %s'
-                 ' WHERE project = %s'
-                 ' AND street = %s'
-                 ' AND x = %s'
-                 ' AND y = %s')
         conn = None
         try:
             conn = pg.connect(**params)
@@ -74,14 +91,23 @@ def update_project_coordinates():
                 latitude = record[4]
                 longitude = record[5]
 
+                if None in [x, y]:
+                    print(f'No XY found - {record}')
+                    street_coord = get_street_coordinates(street)
+                    if street_coord:
+                        x = street_coord[0].get('X')
+                        y = street_coord[0].get('Y')
+                        latitude = street_coord[0].get('LATITUDE')
+                        longitude = street_coord[0].get('LONGITUDE')
+                        cur.execute(query1, (x, y, latitude, longitude, project, street))
+
                 if None in [latitude, longitude]:
-                    print(record)
-                    wgs84_coordinates = get_coordinates(x, y)
-                    if wgs84_coordinates:
-                        latitude = wgs84_coordinates.get('latitude')
-                        longitude = wgs84_coordinates.get('longitude')
-                        t = (latitude, longitude, project, street, x, y)
-                        cur.execute(query, t)
+                    print(f'No long lat found - {record}')
+                    wgs84_coord = get_xy_coordinates(x, y)
+                    if wgs84_coord:
+                        latitude = wgs84_coord.get('latitude')
+                        longitude = wgs84_coord.get('longitude')
+                        cur.execute(query2, (latitude, longitude, project, street, x, y))
             conn.commit()
             cur.close()
         except (pg.Error) as e:
@@ -89,3 +115,4 @@ def update_project_coordinates():
         finally:
             if conn is not None:
                 conn.close()
+

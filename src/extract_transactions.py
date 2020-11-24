@@ -53,10 +53,16 @@ def get_private_residential_transactions(url, access_key, token, batch=1):
 
 
 def extract_transactions(data):
-    query = ('INSERT INTO private_residential_property_transactions'
-             ' (project, street, x, y, area, floor_range, no_of_units, contract_date, type_of_sale, price, property_type, district, type_of_area, tenure, psf)'
-             ' VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
-             ' ON CONFLICT DO NOTHING;')
+    proj_query = (
+        'INSERT INTO private_residential_property_projects'
+        ' (project, street, x, y)'
+        ' VALUES(%s, %s, %s, %s)'
+        'ON CONFLICT DO NOTHING;')
+    trans_query = (
+        'INSERT INTO private_residential_property_transactions'
+        ' (project, street, area, floor_range, no_of_units, contract_date, type_of_sale, price, property_type, district, type_of_area, tenure, psf)'
+        ' VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+        ' ON CONFLICT DO NOTHING;')
     conn = None
     try:
         conn = pg.connect(**params)
@@ -66,6 +72,8 @@ def extract_transactions(data):
             project_name = project.get('project')
             x = project.get('x')
             y = project.get('y')
+            cur.execute(proj_query, (project_name, street, x, y))
+
             transactions = project.get('transaction')
             if transactions is not None:
                 for transaction in transactions:
@@ -80,8 +88,8 @@ def extract_transactions(data):
                     type_of_area = transaction.get('typeOfArea')
                     tenure = transaction.get('tenure')
                     psf = math.floor(price / area)
-                    t = (project_name, street, x, y, area, floor_range, no_of_units, contract_date, type_of_sale, price, property_type, district, type_of_area, tenure, psf)
-                    cur.execute(query, t)
+                    t = (project_name, street, area, floor_range, no_of_units, contract_date, type_of_sale, price, property_type, district, type_of_area, tenure, psf)
+                    cur.execute(trans_query, t)
         conn.commit()
         cur.close()
     except (pg.DatabaseError) as e:
