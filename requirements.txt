@@ -5,3 +5,4 @@ bokeh==2.2.3
 flake8
 setuptools
 psycopg2>=2.8.4
+streamlit
