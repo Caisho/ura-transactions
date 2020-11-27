@@ -4,6 +4,8 @@ import requests
 import datetime
 from dotenv import load_dotenv
 import psycopg2 as pg
+from update_coordinates import update_project_coordinates
+from utils import get_tenure_type
 
 load_dotenv()
 URA_ACCESS_KEY = os.getenv('URA_ACCESS_KEY')
@@ -60,8 +62,8 @@ def extract_transactions(data):
         'ON CONFLICT DO NOTHING;')
     trans_query = (
         'INSERT INTO private_residential_property_transactions'
-        ' (project, street, area, floor_range, no_of_units, contract_date, type_of_sale, price, property_type, district, type_of_area, tenure, psf)'
-        ' VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+        ' (project, street, area, floor_range, no_of_units, contract_date, type_of_sale, price, property_type, district, type_of_area, tenure, psf, tenure_type)'
+        ' VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
         ' ON CONFLICT DO NOTHING;')
     conn = None
     try:
@@ -79,7 +81,7 @@ def extract_transactions(data):
                 for transaction in transactions:
                     area = math.floor(float(transaction.get('area')) * 10.764)
                     floor_range = transaction.get('floorRange')
-                    no_of_units = transaction.get('noOfUnits')
+                    no_of_units = int(transaction.get('noOfUnits'))
                     contract_date = format_date(transaction.get('contractDate'))
                     type_of_sale = transaction.get('typeOfSale')
                     price = float(transaction.get('price'))
@@ -88,8 +90,9 @@ def extract_transactions(data):
                     type_of_area = transaction.get('typeOfArea')
                     tenure = transaction.get('tenure')
                     psf = math.floor(price / area)
-                    t = (project_name, street, area, floor_range, no_of_units, contract_date, type_of_sale, price, property_type, district, type_of_area, tenure, psf)
-                    cur.execute(trans_query, t)
+                    tenure_type = get_tenure_type(tenure)
+                    values = (project_name, street, area, floor_range, no_of_units, contract_date, type_of_sale, price, property_type, district, type_of_area, tenure, psf, tenure_type)
+                    cur.execute(trans_query, values)
         conn.commit()
         cur.close()
     except (pg.DatabaseError) as e:
@@ -111,3 +114,5 @@ if __name__ == '__main__':
         result = get_private_residential_transactions(URA_PROPERTY_URL, URA_ACCESS_KEY, token, batch=i)
         print(f'total projects = {len(result)}')
         extract_transactions(result)
+        print('updating longitude and latitude')
+        update_project_coordinates()

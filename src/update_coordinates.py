@@ -2,6 +2,7 @@ import os
 import requests
 from dotenv import load_dotenv
 import psycopg2 as pg
+from utils import get_tenure_type
 
 load_dotenv()
 URA_ACCESS_KEY = os.getenv('URA_ACCESS_KEY')
@@ -46,6 +47,25 @@ def get_street_coordinates(street='ORCHARD BOULEVARD'):
 
 def get_projects_table():
     query = ('SELECT * FROM private_residential_property_projects')
+    conn = None
+    records = None
+    try:
+        conn = pg.connect(**params)
+        cur = conn.cursor()
+        cur.execute(query)
+        records = cur.fetchall()
+        cur.close()
+    except (pg.Error) as e:
+        print(e)
+    finally:
+        if conn is not None:
+            conn.close()
+        return records
+
+
+def get_transactions_table():
+    query = ('SELECT project, street, area, floor_range, contract_date, type_of_sale, price, tenure, tenure_type'
+             ' FROM private_residential_property_transactions')
     conn = None
     records = None
     try:
@@ -109,10 +129,47 @@ def update_project_coordinates():
                         longitude = wgs84_coord.get('longitude')
                         cur.execute(query2, (latitude, longitude, project, street, x, y))
             conn.commit()
-            cur.close()
         except (pg.Error) as e:
             print(e)
         finally:
             if conn is not None:
                 conn.close()
 
+
+def update_transactions_tenure():
+    transactions = get_transactions_table()
+    query = ('UPDATE private_residential_property_transactions'
+             ' SET tenure_type = %s'
+             ' WHERE project = %s'
+             ' AND street = %s'
+             ' AND area = %s'
+             ' AND floor_range = %s'
+             ' AND contract_date = %s'
+             ' AND type_of_sale = %s'
+             ' AND price = %s')
+    conn = None
+    try:
+        conn = pg.connect(**params)
+        cur = conn.cursor()
+
+        for record in transactions:
+            project = record[0]
+            street = record[1]
+            area = record[2]
+            floor_range = record[3]
+            contract_date = record[4]
+            type_of_sale = record[5]
+            price = record[6]
+            tenure = record[7]
+            tenure_type = record[8]
+
+            if tenure_type is None:
+                tenure_type = get_tenure_type(tenure)
+                values = (tenure_type, project, street, area, floor_range, contract_date, type_of_sale, price)
+                cur.execute(query, values)
+        conn.commit()
+    except (pg.Error) as e:
+        print(e)
+    finally:
+        if conn is not None:
+            conn.close()
