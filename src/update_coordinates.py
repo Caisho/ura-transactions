@@ -54,18 +54,30 @@ def get_projects_table():
         cur = conn.cursor()
         cur.execute(query)
         records = cur.fetchall()
-        cur.close()
     except (pg.Error) as e:
         print(e)
     finally:
-        if conn is not None:
+        if conn:
+            cur.close()
             conn.close()
         return records
 
 
 def get_transactions_table():
-    query = ('SELECT project, street, area, floor_range, contract_date, type_of_sale, price, tenure, tenure_type'
-             ' FROM private_residential_property_transactions')
+    query = (
+        'SELECT'
+        '    project,'
+        '    street,'
+        '    area,'
+        '    floor_range,'
+        '    contract_date,'
+        '   type_of_sale,'
+        '   price,'
+        '   tenure,'
+        '   tenure_type'
+        'FROM'
+        '    private_residential_property_transactions'
+        )
     conn = None
     records = None
     try:
@@ -73,30 +85,43 @@ def get_transactions_table():
         cur = conn.cursor()
         cur.execute(query)
         records = cur.fetchall()
-        cur.close()
     except (pg.Error) as e:
         print(e)
     finally:
-        if conn is not None:
+        if conn:
+            cur.close()
             conn.close()
         return records
 
 
 def update_project_coordinates():
     projects = get_projects_table()
-    query1 = ('UPDATE private_residential_property_projects'
-              ' SET x = %s, y = %s, latitude = %s, longitude = %s'
-              ' WHERE project = %s'
-              ' AND street = %s'
-              ' AND x IS NULL'
-              ' AND y IS NULL')
-
-    query2 = ('UPDATE private_residential_property_projects'
-              ' SET latitude = %s, longitude = %s'
-              ' WHERE project = %s'
-              ' AND street = %s'
-              ' AND x = %s'
-              ' AND y = %s')
+    query1 = (
+        'UPDATE'
+        '    private_residential_property_projects'
+        'SET'
+        '    x = %s,'
+        '    y = %s,'
+        '    latitude = %s,'
+        '    longitude = %s'
+        'WHERE'
+        '    project = %s'
+        '    AND street = %s'
+        '    AND x IS NULL'
+        '    AND y IS NULL'
+        )
+    query2 = (
+        'UPDATE'
+        '    private_residential_property_projects'
+        'SET'
+        '   latitude = %s,'
+        '   longitude = %s'
+        'WHERE'
+        '   project = %s'
+        '   AND street = %s'
+        '   AND x = %s'
+        '   AND y = %s'
+        )
     if projects:
         conn = None
         try:
@@ -132,21 +157,27 @@ def update_project_coordinates():
         except (pg.Error) as e:
             print(e)
         finally:
-            if conn is not None:
+            if conn:
+                cur.close()
                 conn.close()
 
 
 def update_transactions_tenure():
     transactions = get_transactions_table()
-    query = ('UPDATE private_residential_property_transactions'
-             ' SET tenure_type = %s'
-             ' WHERE project = %s'
-             ' AND street = %s'
-             ' AND area = %s'
-             ' AND floor_range = %s'
-             ' AND contract_date = %s'
-             ' AND type_of_sale = %s'
-             ' AND price = %s')
+    query = (
+        'UPDATE'
+        '    private_residential_property_transactions'
+        'SET'
+        '    tenure_type = %s'
+        'WHERE'
+        '    project = %s'
+        '    AND street = %s'
+        '    AND area = %s'
+        '    AND floor_range = %s'
+        '    AND contract_date = %s'
+        '    AND type_of_sale = %s'
+        '    AND price = %s'
+    )
     conn = None
     try:
         conn = pg.connect(**params)
@@ -171,5 +202,6 @@ def update_transactions_tenure():
     except (pg.Error) as e:
         print(e)
     finally:
-        if conn is not None:
+        if conn:
+            cur.close()
             conn.close()

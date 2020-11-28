@@ -24,13 +24,15 @@ params = {
 def create_projects_table():
     query = (
         'CREATE TABLE public.private_residential_property_projects ('
-        'project varchar NOT NULL,'
-        'street varchar NOT NULL,'
-        'x varchar NULL,'
-        'y varchar NULL,'
-        'latitude varchar NULL,'
-        'longitude varchar NULL,'
-        'CONSTRAINT private_residential_property_projects_pk PRIMARY KEY (project, street));')
+        '   project varchar NOT NULL,'
+        '   street varchar NOT NULL,'
+        '   x varchar NULL,'
+        '   y varchar NULL,'
+        '   latitude varchar NULL,'
+        '   longitude varchar NULL,'
+        '   CONSTRAINT private_residential_property_projects_pk PRIMARY KEY (project, street)'
+        ');'
+    )
     conn = None
     try:
         conn = pg.connect(**params)
@@ -48,27 +50,31 @@ def create_projects_table():
 def create_transactions_table():
     query1 = (
         'CREATE TABLE public.private_residential_property_transactions ('
-        'project varchar NOT NULL,'
-        'street varchar NOT NULL,'
-        'area varchar NOT NULL,'
-        'floor_range varchar NOT NULL,'
-        'no_of_units varchar NULL,'
-        'contract_date date NOT NULL,'
-        'type_of_sale varchar NOT NULL,'
-        'price varchar NOT NULL,'
-        'property_type varchar NULL,'
-        'district varchar NULL,'
-        'type_of_area varchar NULL,'
-        'tenure varchar NULL,'
-        'psf varchar NULL,'
-        'CONSTRAINT private_residential_property_transactions_pk PRIMARY KEY ('
-        'project, street, area, floor_range, contract_date, type_of_sale, price));')
-
+        '   project varchar NOT NULL,'
+        '   street varchar NOT NULL,'
+        '   area varchar NOT NULL,'
+        '   floor_range varchar NOT NULL,'
+        '   no_of_units varchar NULL,'
+        '   contract_date date NOT NULL,'
+        '   type_of_sale varchar NOT NULL,'
+        '   price varchar NOT NULL,'
+        '    property_type varchar NULL,'
+        '    district varchar NULL,'
+        '    type_of_area varchar NULL,'
+        '    tenure varchar NULL,'
+        '    psf varchar NULL,'
+        '    CONSTRAINT private_residential_property_transactions_pk PRIMARY KEY ('
+        '        project, street, area, floor_range,'
+        '        contract_date, type_of_sale, price'
+        '   )'
+        ');'
+    )
     query2 = (
-        'ALTER TABLE public.private_residential_property_transactions '
-        'ADD CONSTRAINT private_residential_property_transactions_fk FOREIGN KEY (project, street) '
-        'REFERENCES private_residential_property_projects(project, street);')
-
+        'ALTER TABLE'
+        '    public.private_residential_property_transactions'
+        'ADD'
+        '    CONSTRAINT private_residential_property_transactions_fk FOREIGN KEY (project, street) REFERENCES private_residential_property_projects(project, street);'
+    )
     conn = None
     try:
         conn = pg.connect(**params)

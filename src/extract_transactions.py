@@ -56,15 +56,22 @@ def get_private_residential_transactions(url, access_key, token, batch=1):
 
 def extract_transactions(data):
     proj_query = (
-        'INSERT INTO private_residential_property_projects'
-        ' (project, street, x, y)'
-        ' VALUES(%s, %s, %s, %s)'
-        'ON CONFLICT DO NOTHING;')
+        'INSERT INTO private_residential_property_projects (project, street, x, y)'
+        'VALUES'
+        '    (%s, %s, %s, %s) ON CONFLICT DO NOTHING;'
+    )
     trans_query = (
-        'INSERT INTO private_residential_property_transactions'
-        ' (project, street, area, floor_range, no_of_units, contract_date, type_of_sale, price, property_type, district, type_of_area, tenure, psf, tenure_type)'
-        ' VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
-        ' ON CONFLICT DO NOTHING;')
+        'INSERT INTO private_residential_property_transactions ('
+        '    project, street, area, floor_range,'
+        '    no_of_units, contract_date, type_of_sale,'
+        '    price, property_type, district, type_of_area,'
+        '    tenure, psf, tenure_type'
+        ')'
+        'VALUES'
+        '    ('
+        '        %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s'
+        '    ) ON CONFLICT DO NOTHING;'
+    )
     conn = None
     try:
         conn = pg.connect(**params)
@@ -94,11 +101,11 @@ def extract_transactions(data):
                     values = (project_name, street, area, floor_range, no_of_units, contract_date, type_of_sale, price, property_type, district, type_of_area, tenure, psf, tenure_type)
                     cur.execute(trans_query, values)
         conn.commit()
-        cur.close()
     except (pg.DatabaseError) as e:
         print(e)
     finally:
-        if conn is not None:
+        if conn:
+            cur.close()
             conn.close()
 
 
@@ -114,5 +121,5 @@ if __name__ == '__main__':
         result = get_private_residential_transactions(URA_PROPERTY_URL, URA_ACCESS_KEY, token, batch=i)
         print(f'total projects = {len(result)}')
         extract_transactions(result)
-        print('updating longitude and latitude')
-        update_project_coordinates()
+    print('updating longitude and latitude')
+    update_project_coordinates()
