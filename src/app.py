@@ -1,29 +1,30 @@
 import streamlit as st
 import pydeck as pdk
+import pandas as pd
+from postgres_utils import get_property_type_labels, get_contract_date_years, get_tenure_type_labels, get_transactions_table
 
 MAPBOX_STYLE = 'mapbox://styles/caisho/ckhzpiwfm1x7419pujepchs2x'
-PROPERTY_TYPES = [
-    'Apartment',
-    'Condominium',
-    'Detached',
-    'Executive Condominium',
-    'Semi-detached',
-    'Strata Detached',
-    'Strata Semi-detached',
-    'Strata Terrace',
-    'Terrace',
-]
+PROPERTY_TYPES = get_property_type_labels()
+TRANSACTION_YEARS = get_contract_date_years()
+TENURE_TYPES = get_tenure_type_labels()
+
+
+@st.cache
+def get_data():
+    records = get_transactions_table()
+    return pd.DataFrame(records)
+
 
 # Sidebar
 st.sidebar.subheader('Map Layers')
 start_date = st.sidebar.selectbox(
     label='Start date of transactions',
-    options=['2017', '2018', '2019', '2020']
+    options=TRANSACTION_YEARS,
 )
 
 end_date = st.sidebar.selectbox(
     label='End date of transactions',
-    options=['2017', '2018', '2019', '2020'],
+    options=TRANSACTION_YEARS,
     index=3
 )
 
@@ -33,15 +34,21 @@ property_type = st.sidebar.multiselect(
     default=PROPERTY_TYPES,
 )
 
+tenure_type = st.sidebar.multiselect(
+    label='Select property type(s)',
+    options=TENURE_TYPES,
+    default=TENURE_TYPES,
+)
 # area 
 # type of sale
-# tenure
 # type of area (Land, Strata)
 
 
 # Body
 st.title('Singapore District Map')
-st.text('Hello Joni')
+
+df = get_data()
+st.write(df.head())
 
 st.pydeck_chart(pdk.Deck(
     map_style=MAPBOX_STYLE,

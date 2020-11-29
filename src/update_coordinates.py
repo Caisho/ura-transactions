@@ -45,8 +45,11 @@ def get_street_coordinates(street='ORCHARD BOULEVARD'):
     return None
 
 
-def get_projects_table():
-    query = ('SELECT * FROM private_residential_property_projects')
+def get_transactions_table():
+    query = (
+        'SELECT project, street, area, floor_range, contract_date, type_of_sale, price, tenure, tenure_type '
+        'FROM private_residential_property_transactions'
+        )
     conn = None
     records = None
     try:
@@ -63,11 +66,8 @@ def get_projects_table():
         return records
 
 
-def get_transactions_table():
-    query = (
-        'SELECT project, street, area, floor_range, contract_date, type_of_sale, price, tenure, tenure_type '
-        'FROM private_residential_property_transactions'
-        )
+def get_projects_table():
+    query = ('SELECT * FROM private_residential_property_projects')
     conn = None
     records = None
     try:
