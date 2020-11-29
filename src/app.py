@@ -1,7 +1,7 @@
 import streamlit as st
 import pydeck as pdk
 import pandas as pd
-from postgres_utils import get_property_type_labels, get_contract_date_years, get_tenure_type_labels, get_transactions_table
+from postgres_utils import get_property_type_labels, get_contract_date_years, get_tenure_type_labels, get_transactions_data
 
 MAPBOX_STYLE = 'mapbox://styles/caisho/ckhzpiwfm1x7419pujepchs2x'
 PROPERTY_TYPES = get_property_type_labels()
@@ -11,8 +11,7 @@ TENURE_TYPES = get_tenure_type_labels()
 
 @st.cache
 def get_data():
-    records = get_transactions_table()
-    return pd.DataFrame(records)
+    return get_transactions_data().head()
 
 
 # Sidebar

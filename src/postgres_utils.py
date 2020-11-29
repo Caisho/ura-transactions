@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 import psycopg2 as pg
+import pandas as pd
 
 load_dotenv()
 POSTGRES_DB = os.getenv('POSTGRES_DB')
@@ -17,33 +18,22 @@ params = {
     'dbname': POSTGRES_DB
 }
 
-
 def get_transactions_data():
-    columns_query = (
-        'SELECT column_name '
-        'FROM INFORMATION_SCHEMA.COLUMNS '
-        'WHERE TABLE_NAME = \'private_residential_property_transactions\';'
-        )
-    data_query = (
+    query = (
         'SELECT * '
         'FROM private_residential_property_transactions;'
     )
     conn = None
-    cols, data = None, None
-    try:
+    df = None
+    try: 
         conn = pg.connect(**params)
-        cur = conn.cursor()
-        cur.execute(columns_query)
-        cols = cur.fetchall()
-        cur.execute(data_query)
-        data = cur.fetchall()
+        df = pd.read_sql(query, con=conn)
     except (pg.Error) as e:
         print(e)
     finally:
         if conn:
-            cur.close()
             conn.close()
-        return cols, data
+        return df
 
 
 def get_contract_date_years():
