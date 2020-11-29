@@ -6,3 +6,4 @@ flake8
 setuptools
 psycopg2>=2.8.4
 streamlit
+pylint
