@@ -21,6 +21,31 @@ params = {
 }
 
 
+def create_postal_districts_table():
+    query = (
+        'CREATE TABLE public.postal_districts ('
+        '    name varchar NOT NULL,'
+        '    latitude varchar NOT NULL,'
+        '    longitude varchar NOT NULL,'
+        '    postal_sector varchar NULL,'
+        '    location varchar NULL,'
+        '    CONSTRAINT postal_districts_pk PRIMARY KEY (name)'
+        ');'
+    )
+    conn = None
+    try:
+        conn = pg.connect(**params)
+        cur = conn.cursor()
+        cur.execute(query)
+        conn.commit()
+        cur.close()
+    except (pg.Error) as e:
+        print(e)
+    finally:
+        if conn is not None:
+            conn.close()
+
+
 def create_projects_table():
     query = (
         'CREATE TABLE public.private_residential_property_projects ('

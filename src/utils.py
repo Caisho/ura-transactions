@@ -1,3 +1,6 @@
+import math
+
+
 def get_tenure_type(tenure):
     """We want to group the tenures into [60, 99, 999, Freehold, Unknown]
        - Case 1: 60 years lease
@@ -29,3 +32,30 @@ def get_tenure_type(tenure):
             tenure_type = 'Freehold'
     finally:
         return tenure_type
+
+
+def get_coordinates_center(data):
+    """Calculate the centre of a list of latitude and logitude coordinates using degrees.
+
+    Args:
+        data ([list]): list of list(latitude, logitude)
+    """
+    x, y, z = 0, 0, 0
+    for coord in data:
+        lat = coord[1] * math.pi / 180
+        long = coord[0] * math.pi / 180
+
+        x += math.cos(lat) * math.cos(long)
+        y += math.cos(lat) * math.sin(long)
+        z += math.sin(lat)
+
+    x = x / len(data)
+    y = y / len(data)
+    z = z / len(data)
+
+    center_long = math.atan2(y, x)
+    center_sqrt = math.sqrt(x*x + y*y)
+    center_lat = math.atan2(z, center_sqrt)
+
+    return [center_lat * 180 / math.pi, center_long * 180 / math.pi]
+

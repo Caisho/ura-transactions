@@ -101,7 +101,6 @@ def update_project_coordinates():
         try:
             conn = pg.connect(**params)
             cur = conn.cursor()
-
             for record in projects:
                 project = record[0]
                 street = record[1]
@@ -110,7 +109,7 @@ def update_project_coordinates():
                 latitude = record[4]
                 longitude = record[5]
 
-                if None in [x, y]:
+                if (None in [x, y]) or ('' in [x, y]):
                     print(f'No XY found - {record}')
                     street_coord = get_street_coordinates(street)
                     if street_coord:
@@ -120,7 +119,7 @@ def update_project_coordinates():
                         longitude = street_coord[0].get('LONGITUDE')
                         cur.execute(query1, (x, y, latitude, longitude, project, street))
 
-                if None in [latitude, longitude]:
+                if (None in [latitude, longitude]) or ('' in [latitude, longitude]):
                     print(f'No long lat found - {record}')
                     wgs84_coord = get_xy_coordinates(x, y)
                     if wgs84_coord:
