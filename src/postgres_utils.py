@@ -110,6 +110,42 @@ def get_property_type_labels():
         return [element for tupl in records for element in tupl]
 
 
+def get_sale_type_labels():
+    query = ('SELECT DISTINCT type_of_sale FROM private_residential_property_transactions order by type_of_sale asc')
+    conn = None
+    records = None
+    try:
+        conn = pg.connect(**params)
+        cur = conn.cursor()
+        cur.execute(query)
+        records = cur.fetchall()
+    except (pg.Error) as e:
+        print(e)
+    finally:
+        if conn:
+            cur.close()
+            conn.close()
+        return [element for tupl in records for element in tupl]
+
+
+def get_floor_range_labels():
+    query = ('SELECT DISTINCT floor_range FROM private_residential_property_transactions order by floor_range asc')
+    conn = None
+    records = None
+    try:
+        conn = pg.connect(**params)
+        cur = conn.cursor()
+        cur.execute(query)
+        records = cur.fetchall()
+    except (pg.Error) as e:
+        print(e)
+    finally:
+        if conn:
+            cur.close()
+            conn.close()
+        return [element for tupl in records for element in tupl]
+
+
 def get_tenure_type_labels():
     query = ('SELECT DISTINCT tenure_type FROM private_residential_property_transactions order by tenure_type asc')
     conn = None

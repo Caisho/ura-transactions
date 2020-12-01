@@ -76,15 +76,18 @@ def extract_transactions(data):
     try:
         conn = pg.connect(**params)
         cur = conn.cursor()
+        print(f'total batch projects = {len(data)}')
+        trans_count = 0
         for project in data:
             street = project.get('street')
             project_name = project.get('project')
             x = project.get('x')
             y = project.get('y')
             cur.execute(proj_query, (project_name, street, x, y))
-
+            
             transactions = project.get('transaction')
             if transactions is not None:
+                trans_count += len(transactions) 
                 for transaction in transactions:
                     area = math.floor(float(transaction.get('area')) * 10.764)
                     floor_range = transaction.get('floorRange')
@@ -100,6 +103,7 @@ def extract_transactions(data):
                     tenure_type = get_tenure_type(tenure)
                     values = (project_name, street, area, floor_range, no_of_units, contract_date, type_of_sale, price, property_type, district, type_of_area, tenure, psf, tenure_type)
                     cur.execute(trans_query, values)
+        print(f'total batch transactions = {trans_count}')
         conn.commit()
     except (pg.DatabaseError) as e:
         print(e)
@@ -119,7 +123,6 @@ if __name__ == '__main__':
     for i in range(1, 5, 1):
         print(f'batch = {i}')
         result = get_private_residential_transactions(URA_PROPERTY_URL, URA_ACCESS_KEY, token, batch=i)
-        print(f'total projects = {len(result)}')
         extract_transactions(result)
     print('updating longitude and latitude')
     update_project_coordinates()

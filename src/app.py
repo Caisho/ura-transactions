@@ -1,13 +1,15 @@
 import streamlit as st
 import pydeck as pdk
 import pandas as pd
-from postgres_utils import get_property_type_labels, get_contract_date_years, get_tenure_type_labels, get_area_type_labels, get_transactions_data, get_postal_districts_data
+from postgres_utils import get_property_type_labels, get_contract_date_years, get_tenure_type_labels, get_area_type_labels, get_transactions_data, get_postal_districts_data, get_sale_type_labels, get_floor_range_labels
 
 MAPBOX_STYLE = 'mapbox://styles/caisho/ckhzpiwfm1x7419pujepchs2x'
 AREA_TYPES = get_area_type_labels()
 PROPERTY_TYPES = get_property_type_labels()
 TRANSACTION_YEARS = get_contract_date_years()
 TENURE_TYPES = get_tenure_type_labels()
+SALE_TYPES = get_sale_type_labels()
+FLOOR_RANGE_TYPES = get_floor_range_labels()
 
 
 @st.cache
@@ -36,6 +38,12 @@ end_year = st.sidebar.selectbox(
 min_area = st.sidebar.number_input('Min area (sqft)', value=0)
 max_area = st.sidebar.number_input('Max area (sqft)', value=999999)
 
+sale_type = st.sidebar.multiselect(
+    label='Select type of sale: [1: New Sale, 2: Sub Sale, 3: Resale]',
+    options=SALE_TYPES,
+    default=SALE_TYPES,
+)
+
 area_type = st.sidebar.multiselect(
     label='Select area type(s)',
     options=AREA_TYPES,
@@ -54,6 +62,13 @@ tenure_type = st.sidebar.multiselect(
     default=TENURE_TYPES,
 )
 
+floor_range_type = st.sidebar.multiselect(
+    label='Select floor range(s)',
+    options=FLOOR_RANGE_TYPES,
+    default=FLOOR_RANGE_TYPES,
+)
+
+
 # Body
 st.title('URA Private Residential Property Transactions')
 
@@ -65,16 +80,15 @@ df_filtered = df.loc[
     (df['area'] <= max_area) &
     (df['type_of_area'].isin(area_type)) &
     (df['property_type'].isin(property_type)) &
-    (df['tenure_type'].isin(tenure_type))]
+    (df['tenure_type'].isin(tenure_type)) &
+    (df['floor_range'].isin(floor_range_type)) &
+    (df['type_of_sale'].isin(sale_type))]
 
 st.subheader('Individual Transactions')
 st.write(df_filtered)
 st.write(f'Total Transactions: {len(df_filtered)}')
 
-st.subheader('District Transactions')
 df_group = df_filtered.groupby(['district']).mean()
-st.write(df_group)
-
 df_districts = get_postgres_districts_data()
 df_districts = df_districts.set_index('district')
 df_map = df_districts.join(df_group, how='inner', on='district')
