@@ -128,7 +128,7 @@ def get_tenure_type_labels():
         return [element for tupl in records for element in tupl]
 
 
-def extract_postal_districts(path='./data/ura-postal-districts-boundary/ura-postal-districts-point.geojson'):
+def extract_postal_districts(path='./data/ura-postal-districts/ura-postal-districts-point.geojson'):
     """Extracts name, latitude and logitude data from geojson file
 
     Args:
@@ -152,8 +152,8 @@ def extract_postal_districts(path='./data/ura-postal-districts-boundary/ura-post
             features = json.load(f).get('features')
             for feature in features:
                 name = feature['properties']['name']
-                latitude = feature['geometry']['coordinates'][0]
-                longitude = feature['geometry']['coordinates'][1]
+                longitude = feature['geometry']['coordinates'][0]
+                latitude = feature['geometry']['coordinates'][1]
                 postal = feature['properties']['postal-sector']
                 location = feature['properties']['location']
                 cur.execute(query, (name, latitude, longitude, postal, location))

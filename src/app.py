@@ -79,7 +79,9 @@ df_districts = get_postgres_districts_data()
 df_districts = df_districts.set_index('district')
 df_map = df_districts.join(df_group, how='inner', on='district')
 df_map['psf'] = df_map['psf'].to_numpy().astype('int').astype('str')  # hack to get it to work
+df_map['psf'] = df_map['psf'] + 'psf'
 
+df_map['latitude'] = df_map['latitude'] - 0.002
 
 st.subheader('Average PSF by District')
 st.pydeck_chart(pdk.Deck(
@@ -97,8 +99,8 @@ st.pydeck_chart(pdk.Deck(
             get_position='[longitude, latitude]',  # must be numeric
             get_text='psf',  # must be varchar
             get_color=[200, 30, 0, 160],
-            get_size=30,
-            get_alignment_baseline="'center'",
+            get_size=20,
+            get_alignment_baseline="'top'",
         ),
     ],
 ))
