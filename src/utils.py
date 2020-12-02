@@ -59,3 +59,27 @@ def get_coordinates_center(data):
 
     return [center_lat * 180 / math.pi, center_long * 180 / math.pi]
 
+
+def get_coordinates_distance(coord1, coord2):
+    """Uses haversine formula to calculate the shortest dist between 2 points
+
+    Args:
+        coord1 (tuple or list): longitude and latitude coordinates in that order
+        coord2 (tuple or list): longitude and latitude coordinates in that order
+    """
+    R = 6371e3
+    long1 = coord1[0]
+    long2 = coord2[0]
+    lat1 = coord1[1]
+    lat2 = coord2[1]
+    lat1_rad = lat1 * math.pi / 180
+    lat2_rad = lat2 * math.pi / 180
+    chg_lat = (lat2 - lat1) * math.pi / 180
+    chg_long = (long2 - long1) * math.pi / 180
+
+    a = (math.sin(chg_lat/2) * math.sin(chg_lat/2) +
+         math.cos(lat1_rad) * math.cos(lat2_rad) *
+         math.sin(chg_long/2) * math.sin(chg_long/2))
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
+    dist = R * c
+    return dist

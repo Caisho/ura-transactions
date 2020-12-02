@@ -3,6 +3,7 @@ import json
 from dotenv import load_dotenv
 import psycopg2 as pg
 import pandas as pd
+from utils import get_coordinates_distance
 
 load_dotenv()
 POSTGRES_DB = os.getenv('POSTGRES_DB')
@@ -194,6 +195,104 @@ def extract_postal_districts(path='./data/ura-postal-districts/ura-postal-distri
                 location = feature['properties']['location']
                 cur.execute(query, (name, latitude, longitude, postal, location))
             conn.commit()
+    except (pg.Error) as e:
+        print(e)
+    finally:
+        if conn:
+            cur.close()
+            conn.close()
+
+
+def extract_mrt_coordinates(path='./data/mrt/rail-station-point.geojson'):
+    """Extracts name, latitude and logitude data from geojson file
+
+    Args:
+        path (str): filepath to geojson file
+    """
+    query = (
+        'INSERT INTO mrt ('
+        '   name, longitude, latitude'
+        ') '
+        'VALUES'
+        '    ('
+        '        %s, %s, %s'
+        '    ) ON CONFLICT DO NOTHING;'
+        )
+    conn = None
+    try:
+        conn = pg.connect(**params)
+        cur = conn.cursor()
+
+        with open(path) as f:
+            features = json.load(f).get('features')
+            for feature in features:
+                name = feature['properties']['Name']
+                geo_type = feature['geometry']['type']
+                if geo_type == 'Point':
+                    longitude = feature['geometry']['coordinates'][0]
+                    latitude = feature['geometry']['coordinates'][1]
+                else:
+                    longitude = feature['geometry']['coordinates'][0][0]
+                    latitude = feature['geometry']['coordinates'][0][1]
+                cur.execute(query, (name, longitude, latitude))
+            conn.commit()
+    except (pg.Error) as e:
+        print(e)
+    finally:
+        if conn:
+            cur.close()
+            conn.close()
+
+
+def update_proj_mrt_coordinates():
+    proj_query = (
+        'SELECT project, street, longitude, latitude, mrt_id, mrt_name, mrt_dist '
+        'FROM private_residential_property_projects;'
+        )
+    mrt_query = (
+        'SELECT id, name, longitude, latitude '
+        'FROM mrt;'
+    )
+    insert_query = (
+        'UPDATE private_residential_property_projects '
+        'SET mrt_id = %s, mrt_name = %s, mrt_dist = %s '
+        'WHERE project = %s AND street = %s'
+    )
+    conn = None
+    try:
+        conn = pg.connect(**params)
+        cur = conn.cursor()
+        cur.execute(proj_query)
+        proj_records = cur.fetchall()
+        cur.execute(mrt_query)
+        mrt_records = cur.fetchall()
+
+        for proj in proj_records:
+            proj_name = proj[0]
+            proj_street = proj[1]
+            proj_long = float(proj[2])
+            proj_lat = float(proj[3])
+            mrt_id = proj[4]
+            mrt_name = proj[5]
+            mrt_dist = proj[6]
+            proj_coord = (proj_long, proj_lat)
+
+            if None in (mrt_id, mrt_name):
+                closest_mrt_id = None
+                closest_mrt_name = None
+                closest_mrt_dist = 9999999
+                for mrt in mrt_records:
+                    mrt_long = float(mrt[2])
+                    mrt_lat = float(mrt[3])
+                    mrt_coord = (mrt_long, mrt_lat)
+                    dist = get_coordinates_distance(proj_coord, mrt_coord)
+                    if dist < closest_mrt_dist:
+                        closest_mrt_id = mrt[0]
+                        closest_mrt_name = mrt[1]
+                        closest_mrt_dist = dist
+                print(proj[0], closest_mrt_id, closest_mrt_name, closest_mrt_dist)
+                cur.execute(insert_query, (closest_mrt_id, closest_mrt_name, closest_mrt_dist, proj_name, proj_street))
+        conn.commit()
     except (pg.Error) as e:
         print(e)
     finally:
