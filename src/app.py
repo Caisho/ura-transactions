@@ -1,7 +1,7 @@
 import streamlit as st
 import pydeck as pdk
 import pandas as pd
-from postgres_utils import get_property_type_labels, get_contract_date_years, get_tenure_type_labels, get_area_type_labels, get_transactions_data, get_postal_districts_data, get_sale_type_labels, get_floor_range_labels
+from postgres_utils import get_property_type_labels, get_contract_date_years, get_tenure_type_labels, get_area_type_labels, get_transactions_data, get_postal_districts_data, get_sale_type_labels, get_floor_range_labels, get_transactions_mrt_data
 
 MAPBOX_STYLE = 'mapbox://styles/caisho/ckhzpiwfm1x7419pujepchs2x'
 AREA_TYPES = get_area_type_labels()
@@ -14,7 +14,7 @@ FLOOR_RANGE_TYPES = get_floor_range_labels()
 
 @st.cache
 def get_postgres_transactions_data():
-    return get_transactions_data()
+    return get_transactions_mrt_data()
 
 
 @st.cache
@@ -88,14 +88,17 @@ st.subheader('Individual Transactions')
 st.write(df_filtered)
 st.write(f'Total Transactions: {len(df_filtered)}')
 
-df_group = df_filtered.groupby(['district']).mean()
+df_district_grp = df_filtered.groupby(['district']).mean()
 df_districts = get_postgres_districts_data()
 df_districts = df_districts.set_index('district')
-df_map = df_districts.join(df_group, how='inner', on='district')
+df_map = df_districts.join(df_district_grp, how='inner', on='district')
 df_map['psf'] = df_map['psf'].to_numpy().astype('int').astype('str')  # hack to get it to work
 df_map['psf'] = df_map['psf'] + 'psf'
 
 df_map['latitude'] = df_map['latitude'] - 0.002
+
+df_mrt_grp = df_filtered.groupby(['mrt_name']).mean()
+st.write(df_mrt_grp)
 
 st.subheader('Average PSF by District')
 st.pydeck_chart(pdk.Deck(

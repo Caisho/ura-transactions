@@ -5,6 +5,7 @@ import datetime
 from dotenv import load_dotenv
 import psycopg2 as pg
 from update_coordinates import update_project_coordinates
+from postgres_utils import update_proj_mrt_coordinates
 from utils import get_tenure_type
 
 load_dotenv()
@@ -126,3 +127,5 @@ if __name__ == '__main__':
         extract_transactions(result)
     print('updating longitude and latitude')
     update_project_coordinates()
+    print('updating nearest mrt')
+    update_proj_mrt_coordinates()

@@ -89,12 +89,12 @@ def update_project_coordinates():
     query1 = (
         'UPDATE private_residential_property_projects '
         'SET x = %s, y = %s, latitude = %s, longitude = %s '
-        'WHERE project = %s AND street = %s AND x IS NULL AND y IS NULL'
+        'WHERE project = %s AND street = %s AND x IS NULL AND y IS NULL;'
         )
     query2 = (
         'UPDATE private_residential_property_projects '
         'SET latitude = %s, longitude = %s '
-        'WHERE project = %s AND street = %s AND x = %s AND y = %s'
+        'WHERE project = %s AND street = %s AND x = %s AND y = %s;'
         )
     if projects:
         conn = None
