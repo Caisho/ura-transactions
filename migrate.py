@@ -21,6 +21,32 @@ params = {
 }
 
 
+def create_mrt_table():
+    query = (
+        'CREATE TABLE public.mrt ('
+        '    id varchar NOT NULL,'
+        '    name varchar NOT NULL,'
+        '    type varchar NULL,'
+        '    line varchar NULL,'
+        '    longitude numeric NOT NULL,'
+        '    latitude numeric NOT NULL,'
+        '    CONSTRAINT mrt_pk PRIMARY KEY (name, id)'
+        ');'
+    )
+    conn = None
+    try:
+        conn = pg.connect(**params)
+        cur = conn.cursor()
+        cur.execute(query)
+        conn.commit()
+        cur.close()
+    except (pg.Error) as e:
+        print(e)
+    finally:
+        if conn is not None:
+            conn.close()
+
+
 def create_postal_districts_table():
     query = (
         'CREATE TABLE public.postal_districts ('
@@ -49,13 +75,16 @@ def create_postal_districts_table():
 def create_projects_table():
     query = (
         'CREATE TABLE public.private_residential_property_projects ('
-        '   project varchar NOT NULL,'
-        '   street varchar NOT NULL,'
-        '   x numeric NULL,'
-        '   y numeric NULL,'
-        '   latitude numeric NULL,'
-        '   longitude numeric NULL,'
-        '   CONSTRAINT private_residential_property_projects_pk PRIMARY KEY (project, street)'
+        '    project varchar NOT NULL,'
+        '    street varchar NOT NULL,'
+        '    x numeric NULL,'
+        '    y numeric NULL,'
+        '    latitude numeric NULL,'
+        '    longitude numeric NULL,'
+        '    mrt_id varchar NULL,'
+        '    mrt_name varchar NULL,'
+        '    mrt_dist numeric NULL,'
+        '    CONSTRAINT private_residential_property_projects_pk PRIMARY KEY (project, street)'
         ');'
     )
     conn = None
