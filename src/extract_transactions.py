@@ -87,7 +87,7 @@ def extract_transactions(data):
             
             transactions = project.get('transaction')
             if transactions is not None:
-                trans_count += len(transactions) 
+                trans_count += len(transactions)
                 for transaction in transactions:
                     area = math.floor(float(transaction.get('area')) * 10.764)
                     floor_range = transaction.get('floorRange')
@@ -96,7 +96,7 @@ def extract_transactions(data):
                     type_of_sale = transaction.get('typeOfSale')
                     price = float(transaction.get('price'))
                     property_type = transaction.get('propertyType')
-                    district = transaction.get('district')
+                    district = 'D' + transaction.get('district')
                     type_of_area = transaction.get('typeOfArea')
                     tenure = transaction.get('tenure')
                     psf = math.floor(price / area)

@@ -57,6 +57,26 @@ def get_transactions_data():
         return df
 
 
+def get_transactions_mrt_data():
+    query = (
+        'SELECT prpt.*, EXTRACT(YEAR FROM contract_date) as contract_year, mrt_id, mrt_name, mrt_dist '
+        'FROM private_residential_property_projects prpp '
+        'INNER JOIN private_residential_property_transactions prpt '
+        'ON prpp.project = prpt.project AND prpp.street = prpt.street;'
+    )
+    conn = None
+    df = None
+    try:
+        conn = pg.connect(**params)
+        df = pd.read_sql(query, con=conn)
+    except (pg.Error) as e:
+        print(e)
+    finally:
+        if conn:
+            conn.close()
+        return df
+
+
 def get_contract_date_years():
     query = ('SELECT DISTINCT EXTRACT(YEAR FROM contract_date) as year FROM private_residential_property_transactions order by year asc')
     conn = None
@@ -188,7 +208,7 @@ def extract_postal_districts(path='./data/ura-postal-districts/ura-postal-distri
         with open(path) as f:
             features = json.load(f).get('features')
             for feature in features:
-                name = feature['properties']['name']
+                name = 'D' + feature['properties']['name']
                 longitude = feature['geometry']['coordinates'][0]
                 latitude = feature['geometry']['coordinates'][1]
                 postal = feature['properties']['postal-sector']
