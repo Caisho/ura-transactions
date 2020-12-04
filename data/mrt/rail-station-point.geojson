@@ -1,0 +1,2189 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.761319258645, 1.37950913341157]
+            },
+            "properties": {
+                "id": "BP6, DT1",
+                "name": "BUKIT PANJANG",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.890306656226, 1.32636463416324]
+            },
+            "properties": {
+                "id": "CC10, DT26",
+                "name": "MACPHERSON",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.888296249134, 1.33552173419793]
+            },
+            "properties": {
+                "id": "CC11",
+                "name": "TAI SENG",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.87948466713, 1.34304918055989]
+            },
+            "properties": {
+                "id": "CC12",
+                "name": "BARTLEY",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.863716806857, 1.3515380783584]
+            },
+            "properties": {
+                "id": "CC14",
+                "name": "LORONG CHUAN",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.839496019729, 1.3484524662913]
+            },
+            "properties": {
+                "id": "CC16",
+                "name": "MARYMOUNT",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.839632466305, 1.33752055780847]
+            },
+            "properties": {
+                "id": "CC17, TE9",
+                "name": "CALDECOTT",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.830033301199, 1.33331457493733]
+            },
+            "properties": {
+                "id": "CC18",
+                "name": "BUKIT BROWN",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.816254911087, 1.3225781312151]
+            },
+            "properties": {
+                "id": "CC19, DT9",
+                "name": "BOTANIC GARDENS",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.850705974692, 1.29694539607423]
+            },
+            "properties": {
+                "id": "CC2",
+                "name": "BRAS BASAH",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.807521427307, 1.31740665993945]
+            },
+            "properties": {
+                "id": "CC20",
+                "name": "FARRER ROAD",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.795978967498, 1.31189426907696]
+            },
+            "properties": {
+                "id": "CC21",
+                "name": "HOLLAND VILLAGE",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.787261752789, 1.29920907541704]
+            },
+            "properties": {
+                "id": "CC23",
+                "name": "ONE-NORTH",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.784495033332, 1.29295174594509]
+            },
+            "properties": {
+                "id": "CC24",
+                "name": "KENT RIDGE",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.781412769538, 1.28291453151237]
+            },
+            "properties": {
+                "id": "CC25",
+                "name": "HAW PAR VILLA",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.790667207803, 1.27633561508044]
+            },
+            "properties": {
+                "id": "CC26",
+                "name": "PASIR PANJANG",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.802465288115, 1.272111068813]
+            },
+            "properties": {
+                "id": "CC27",
+                "name": "LABRADOR PARK",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.80957740752, 1.27046342874567]
+            },
+            "properties": {
+                "id": "CC28",
+                "name": "TELOK BLANGAH",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.855514300477, 1.29333149675039]
+            },
+            "properties": {
+                "id": "CC3",
+                "name": "ESPLANADE",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.830052571107, 1.26976467944323]
+            },
+            "properties": {
+                "id": "CC30",
+                "name": "KEPPEL",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.836428197814, 1.27282196335065]
+            },
+            "properties": {
+                "id": "CC31",
+                "name": "CANTONMENT",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.846766256953, 1.27305820440638]
+            },
+            "properties": {
+                "id": "CC32",
+                "name": "PRINCE EDWARD ROAD",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.860897344781, 1.29272289572142]
+            },
+            "properties": {
+                "id": "CC4, DT15",
+                "name": "PROMENADE",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.863394327461, 1.29965927124286]
+            },
+            "properties": {
+                "id": "CC5",
+                "name": "NICOLL HIGHWAY",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.87518729662, 1.30277868248852]
+            },
+            "properties": {
+                "id": "CC6",
+                "name": "STADIUM",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.88186787211, 1.30584900128618]
+            },
+            "properties": {
+                "id": "CC7",
+                "name": "MOUNTBATTEN",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.888444914184, 1.30823958902693]
+            },
+            "properties": {
+                "id": "CC8",
+                "name": "DAKOTA",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.858908705626, 1.28166966150604]
+            },
+            "properties": {
+                "id": "CE1, DT16",
+                "name": "BAYFRONT",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.961542734126, 1.33453457217766]
+            },
+            "properties": {
+                "id": "CG1, DT35",
+                "name": "EXPO",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.988367927274, 1.35722672261815]
+            },
+            "properties": {
+                "id": "CG2",
+                "name": "CHANGI AIRPORT",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.862867623815, 1.36992395216491]
+            },
+            "properties": {
+                "id": "CR10",
+                "name": "TAVISTOCK",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.843406579419, 1.36511370177807]
+            },
+            "properties": {
+                "id": "CR12",
+                "name": "TECK GHEE",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [104.003384843649, 1.37012037323753]
+            },
+            "properties": {
+                "id": "CR2",
+                "name": "AVIATION PARK",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.972124128135, 1.37113303935458]
+            },
+            "properties": {
+                "id": "CR3",
+                "name": "LOYANG",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.959962400042, 1.36740260562679]
+            },
+            "properties": {
+                "id": "CR4",
+                "name": "PASIR RIS EAST",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.93783647284, 1.36877556960019]
+            },
+            "properties": {
+                "id": "CR6",
+                "name": "TAMPINES NORTH",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.898692239551, 1.36207331147782]
+            },
+            "properties": {
+                "id": "CR7",
+                "name": "DEFU",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.872832398724, 1.37076775122542]
+            },
+            "properties": {
+                "id": "CR9",
+                "name": "SERANGOON NORTH",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.825060748593, 1.32021550305314]
+            },
+            "properties": {
+                "id": "DT10, TE11",
+                "name": "STEVENS",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.852372757107, 1.30409651170101]
+            },
+            "properties": {
+                "id": "DT13",
+                "name": "ROCHOR",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.852721713897, 1.27943824734303]
+            },
+            "properties": {
+                "id": "DT17",
+                "name": "DOWNTOWN",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.847966484372, 1.28250760675271]
+            },
+            "properties": {
+                "id": "DT18",
+                "name": "TELOK AYER",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.764467830334, 1.3694851028525]
+            },
+            "properties": {
+                "id": "DT2",
+                "name": "CASHEW",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.844499240155, 1.29277626062082]
+            },
+            "properties": {
+                "id": "DT20",
+                "name": "FORT CANNING",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.850306567606, 1.29885746650295]
+            },
+            "properties": {
+                "id": "DT21",
+                "name": "BENCOOLEN",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.855402169331, 1.3054206521765]
+            },
+            "properties": {
+                "id": "DT22",
+                "name": "JALAN BESAR",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.862711606546, 1.31363256304469]
+            },
+            "properties": {
+                "id": "DT23",
+                "name": "BENDEMEER",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.871830804307, 1.32142939137242]
+            },
+            "properties": {
+                "id": "DT24",
+                "name": "GEYLANG BAHRU",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.883042106827, 1.32682992525846]
+            },
+            "properties": {
+                "id": "DT25",
+                "name": "MATTAR",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.899104408224, 1.32975978142848]
+            },
+            "properties": {
+                "id": "DT27",
+                "name": "UBI",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.907258672251, 1.33460592729349]
+            },
+            "properties": {
+                "id": "DT28",
+                "name": "KAKI BUKIT",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.916591064643, 1.33517128764765]
+            },
+            "properties": {
+                "id": "DT29",
+                "name": "BEDOK NORTH",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.767526438783, 1.36202999465646]
+            },
+            "properties": {
+                "id": "DT3",
+                "name": "HILLVIEW",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.931090503655, 1.33644450992776]
+            },
+            "properties": {
+                "id": "DT30",
+                "name": "BEDOK RESERVOIR",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.938488800403, 1.34457338372822]
+            },
+            "properties": {
+                "id": "DT31",
+                "name": "TAMPINES WEST",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.954281741625, 1.35611564921441]
+            },
+            "properties": {
+                "id": "DT33",
+                "name": "TAMPINES EAST",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.961355702477, 1.34082627723385]
+            },
+            "properties": {
+                "id": "DT34",
+                "name": "UPPER CHANGI",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.964950515102, 1.32848856533051]
+            },
+            "properties": {
+                "id": "DT36",
+                "name": "XILIN",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.956649904353, 1.32006116684785]
+            },
+            "properties": {
+                "id": "DT37, TE31",
+                "name": "SUNGEI BEDOK",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.76878275019, 1.35492363942832]
+            },
+            "properties": {
+                "id": "DT4",
+                "name": "HUME",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.775766635976, 1.34163539051744]
+            },
+            "properties": {
+                "id": "DT5",
+                "name": "BEAUTY WORLD",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.783918293793, 1.33562324372336]
+            },
+            "properties": {
+                "id": "DT6",
+                "name": "KING ALBERT PARK",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.797392817412, 1.33083425028905]
+            },
+            "properties": {
+                "id": "DT7",
+                "name": "SIXTH AVENUE",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.807296762562, 1.32594951213801]
+            },
+            "properties": {
+                "id": "DT8",
+                "name": "TAN KAH KEE",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.871245166007, 1.31140491532864]
+            },
+            "properties": {
+                "id": "EW10",
+                "name": "KALLANG",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.86273558069, 1.30730850836865]
+            },
+            "properties": {
+                "id": "EW11",
+                "name": "LAVENDER",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.85606485125, 1.3009116284982]
+            },
+            "properties": {
+                "id": "EW12, DT14",
+                "name": "BUGIS",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.845613707367, 1.27651152598596]
+            },
+            "properties": {
+                "id": "EW15",
+                "name": "TANJONG PAGAR",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.839723688673, 1.27993396473282]
+            },
+            "properties": {
+                "id": "EW16, NE3, TE17",
+                "name": "OUTRAM PARK",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.826326505379, 1.28624200065218]
+            },
+            "properties": {
+                "id": "EW17",
+                "name": "TIONG BAHRU",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.816287836072, 1.28974156104041]
+            },
+            "properties": {
+                "id": "EW18",
+                "name": "REDHILL",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.805697126508, 1.29498290965459]
+            },
+            "properties": {
+                "id": "EW19",
+                "name": "QUEENSTOWN",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.797777534416, 1.30278285762641]
+            },
+            "properties": {
+                "id": "EW20",
+                "name": "COMMONWEALTH",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.789479631239, 1.30719414101311]
+            },
+            "properties": {
+                "id": "EW21, CC22",
+                "name": "BUONA VISTA",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.778370906556, 1.3114300304485]
+            },
+            "properties": {
+                "id": "EW22",
+                "name": "DOVER",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.765015612347, 1.31536868427635]
+            },
+            "properties": {
+                "id": "EW23",
+                "name": "CLEMENTI",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.732902364628, 1.34216103167742]
+            },
+            "properties": {
+                "id": "EW25",
+                "name": "CHINESE GARDEN",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.720571020304, 1.34405654426621]
+            },
+            "properties": {
+                "id": "EW26",
+                "name": "LAKESIDE",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.70427773891, 1.33858016675639]
+            },
+            "properties": {
+                "id": "EW27, JS8",
+                "name": "BOON LAY",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.697083172399, 1.33746326613418]
+            },
+            "properties": {
+                "id": "EW28",
+                "name": "PIONEER",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.678121290671, 1.32763983237065]
+            },
+            "properties": {
+                "id": "EW29",
+                "name": "JOO KOON",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.949334194306, 1.37268003391141]
+            },
+            "properties": {
+                "id": "EW2, CR5, CP1",
+                "name": "PASIR RIS",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.944784766847, 1.35354881948952]
+            },
+            "properties": {
+                "id": "EW2, DT32",
+                "name": "TAMPINES",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.953120810557, 1.3433181520403]
+            },
+            "properties": {
+                "id": "EW3",
+                "name": "SIMEI",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.660653369612, 1.3195170518942]
+            },
+            "properties": {
+                "id": "EW30",
+                "name": "GUL CIRCLE",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.648766818958, 1.32114948787126]
+            },
+            "properties": {
+                "id": "EW31",
+                "name": "TUAS CRESCENT",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.639370101084, 1.33005003625121]
+            },
+            "properties": {
+                "id": "EW32",
+                "name": "TUAS WEST ROAD",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.636815649971, 1.34007160420115]
+            },
+            "properties": {
+                "id": "EW33",
+                "name": "TUAS LINK",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.94597771608, 1.32692963866643]
+            },
+            "properties": {
+                "id": "EW4",
+                "name": "TANAH MERAH",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.929859078336, 1.32384182235638]
+            },
+            "properties": {
+                "id": "EW5",
+                "name": "BEDOK",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.912397526716, 1.32081140240552]
+            },
+            "properties": {
+                "id": "EW6",
+                "name": "KEMBANGAN",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.90302220539, 1.31963663196537]
+            },
+            "properties": {
+                "id": "EW7",
+                "name": "EUNOS",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.89229430803, 1.31711131044769]
+            },
+            "properties": {
+                "id": "EW8, CC9",
+                "name": "PAYA LEBAR",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.882532630529, 1.31625451358514]
+            },
+            "properties": {
+                "id": "EW9",
+                "name": "ALJUNIED",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.733457189547, 1.35733820919974]
+            },
+            "properties": {
+                "id": "JE1",
+                "name": "TENGAH PLANTATION",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.736786997094, 1.35234101831937]
+            },
+            "properties": {
+                "id": "JE2",
+                "name": "TENGAH PARK",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.739548297698, 1.34563865897402]
+            },
+            "properties": {
+                "id": "JE3",
+                "name": "BUKIT BATOK WEST",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.74248859875, 1.33989897302747]
+            },
+            "properties": {
+                "id": "JE4",
+                "name": "TOH GUAN",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.745217570048, 1.32638717021229]
+            },
+            "properties": {
+                "id": "JE6",
+                "name": "JURONG TOWN HALL",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.744861260876, 1.32056671070292]
+            },
+            "properties": {
+                "id": "JE7",
+                "name": "PANDAN RESERVOIR",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.709029164238, 1.32572901216032]
+            },
+            "properties": {
+                "id": "JS10",
+                "name": "TUKANG",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.710131538738, 1.31803047979688]
+            },
+            "properties": {
+                "id": "JS11",
+                "name": "JURONG HILL",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.710384301353, 1.31313376954159]
+            },
+            "properties": {
+                "id": "JS12",
+                "name": "JURONG PIER",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.740007316392, 1.37921829672166]
+            },
+            "properties": {
+                "id": "JS2",
+                "name": "CHOA CHU KANG WEST",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.730046236362, 1.36633904578021]
+            },
+            "properties": {
+                "id": "JS3",
+                "name": "TENGAH",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.726092119338, 1.35807194773328]
+            },
+            "properties": {
+                "id": "JS4",
+                "name": "HONG KAH",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.713402561504, 1.35256804197687]
+            },
+            "properties": {
+                "id": "JS5",
+                "name": "CORPORATION",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.707846759967, 1.34877637159458]
+            },
+            "properties": {
+                "id": "JS6",
+                "name": "JURONG WEST",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.703388499123, 1.34622965683251]
+            },
+            "properties": {
+                "id": "JS7",
+                "name": "BAHAR JUNCTION",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.708566083028, 1.33213621209197]
+            },
+            "properties": {
+                "id": "JS9",
+                "name": "ENTERPRISE",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.697934359302, 1.34823797315089]
+            },
+            "properties": {
+                "id": "JW1",
+                "name": "GEK POH",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.691706554517, 1.35063795977401]
+            },
+            "properties": {
+                "id": "JW2",
+                "name": "TAWAS",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.686619682998, 1.35350802246019]
+            },
+            "properties": {
+                "id": "JW3",
+                "name": "NANYANG GATEWAY",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.680812341588, 1.34825358558899]
+            },
+            "properties": {
+                "id": "JW4",
+                "name": "NANYANG CRESCENT",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.678411700692, 1.34324045976462]
+            },
+            "properties": {
+                "id": "JW5",
+                "name": "PENG KANG HILL",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.869052871702, 1.33057042871827]
+            },
+            "properties": {
+                "id": "NE10",
+                "name": "POTONG PASIR",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.870911943187, 1.33862499725312]
+            },
+            "properties": {
+                "id": "NE11",
+                "name": "WOODLEIGH",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.873126836378, 1.34889700360892]
+            },
+            "properties": {
+                "id": "NE12, CC13",
+                "name": "SERANGOON",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.884926920816, 1.3598319381692]
+            },
+            "properties": {
+                "id": "NE13",
+                "name": "KOVAN",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.892485152518, 1.37083554557132]
+            },
+            "properties": {
+                "id": "NE14, CR8",
+                "name": "HOUGANG",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.893146827404, 1.38216324197588]
+            },
+            "properties": {
+                "id": "NE15",
+                "name": "BUANGKOK",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.895300986794, 1.39085757553574]
+            },
+            "properties": {
+                "id": "NE16, STC",
+                "name": "SENGKANG",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.902268512135, 1.40472215581355]
+            },
+            "properties": {
+                "id": "NE17, PTC, CP4",
+                "name": "PUNGGOL",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.909689157446, 1.41466147726118]
+            },
+            "properties": {
+                "id": "NE18",
+                "name": "PUNGGOL COAST",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.820840757121, 1.26513306422402]
+            },
+            "properties": {
+                "id": "NE1, CC29",
+                "name": "HARBOURFRONT",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.844842234608, 1.2843974045098]
+            },
+            "properties": {
+                "id": "NE4, DT19",
+                "name": "CHINATOWN",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.84676104186, 1.28894003341287]
+            },
+            "properties": {
+                "id": "NE5",
+                "name": "CLARKE QUAY",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.848463268266, 1.30716737848227]
+            },
+            "properties": {
+                "id": "NE7, DT12",
+                "name": "LITTLE INDIA",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.854114606149, 1.31236676997762]
+            },
+            "properties": {
+                "id": "NE8",
+                "name": "FARRER PARK",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.861715490506, 1.31967380050244]
+            },
+            "properties": {
+                "id": "NE9",
+                "name": "BOON KENG",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.800589985252, 1.44032467701894]
+            },
+            "properties": {
+                "id": "NS10",
+                "name": "ADMIRALTY",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.819727057641, 1.44884711412338]
+            },
+            "properties": {
+                "id": "NS11",
+                "name": "SEMBAWANG",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.829196864009, 1.44354013277492]
+            },
+            "properties": {
+                "id": "NS12",
+                "name": "CANBERRA",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.835074105665, 1.42930825458239]
+            },
+            "properties": {
+                "id": "NS13",
+                "name": "YISHUN",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.833000245495, 1.41734405203061]
+            },
+            "properties": {
+                "id": "NS14",
+                "name": "KHATIB",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.84427960206, 1.38217333197858]
+            },
+            "properties": {
+                "id": "NS15",
+                "name": "YIO CHU KANG",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.849201215347, 1.3704264812108]
+            },
+            "properties": {
+                "id": "NS16, CR11",
+                "name": "ANG MO KIO",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.84899202491, 1.3512571613439]
+            },
+            "properties": {
+                "id": "NS17, CC15",
+                "name": "BISHAN",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.846895683264, 1.34014411766572]
+            },
+            "properties": {
+                "id": "NS18",
+                "name": "BRADDELL",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.847586425462, 1.33263089303201]
+            },
+            "properties": {
+                "id": "NS19",
+                "name": "TOA PAYOH",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.741726254301, 1.33312203782913]
+            },
+            "properties": {
+                "id": "NS1, EW24, JE5",
+                "name": "JURONG EAST",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.749330229888, 1.34846267921789]
+            },
+            "properties": {
+                "id": "NS2",
+                "name": "BUKIT BATOK",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.843715544085, 1.32015682352872]
+            },
+            "properties": {
+                "id": "NS20",
+                "name": "NOVENA",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.837866672146, 1.31226538751841]
+            },
+            "properties": {
+                "id": "NS21, DT11",
+                "name": "NEWTON",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.832258048202, 1.30402365324304]
+            },
+            "properties": {
+                "id": "NS22, TE14",
+                "name": "ORCHARD",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.839069261637, 1.3002770336235]
+            },
+            "properties": {
+                "id": "NS23",
+                "name": "SOMERSET",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.845491269803, 1.30015366079008]
+            },
+            "properties": {
+                "id": "NS24, NE6, CC1",
+                "name": "DHOBY GHAUT",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.852742261158, 1.29269424538355]
+            },
+            "properties": {
+                "id": "NS25, EW13",
+                "name": "CITY HALL",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.851510597732, 1.28421118846267]
+            },
+            "properties": {
+                "id": "NS26, EW14",
+                "name": "RAFFLES PLACE",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.855247208604, 1.27591879865081]
+            },
+            "properties": {
+                "id": "NS27, CE2, TE20",
+                "name": "MARINA BAY",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.863000308855, 1.27143967526742]
+            },
+            "properties": {
+                "id": "NS28",
+                "name": "MARINA SOUTH PIER",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.75199562073, 1.35818887593322]
+            },
+            "properties": {
+                "id": "NS3",
+                "name": "BUKIT GOMBAK",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.744106037612, 1.38527561751461]
+            },
+            "properties": {
+                "id": "NS4, BP1, JS1",
+                "name": "CHOA CHU KANG",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.747406162943, 1.39713488963351]
+            },
+            "properties": {
+                "id": "NS5",
+                "name": "YEW TEE",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.761892614638, 1.42492498407635]
+            },
+            "properties": {
+                "id": "NS7",
+                "name": "KRANJI",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.773550160653, 1.43245702244493]
+            },
+            "properties": {
+                "id": "NS8",
+                "name": "MARSILING",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.785705842133, 1.43653191149168]
+            },
+            "properties": {
+                "id": "NS9, TE2",
+                "name": "WOODLANDS",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.83420359112, 1.32817965461678]
+            },
+            "properties": {
+                "id": "TE10",
+                "name": "MOUNT PLEASANT",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.818795060567, 1.30762369549749]
+            },
+            "properties": {
+                "id": "TE12",
+                "name": "NAPIER",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.823952336647, 1.30240246527113]
+            },
+            "properties": {
+                "id": "TE13",
+                "name": "ORCHARD BOULEVARD",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.833562589427, 1.29468795253204]
+            },
+            "properties": {
+                "id": "TE15",
+                "name": "GREAT WORLD",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.833441373916, 1.28889288108273]
+            },
+            "properties": {
+                "id": "TE16",
+                "name": "HAVELOCK",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.843772420219, 1.28046324360043]
+            },
+            "properties": {
+                "id": "TE18",
+                "name": "MAXWELL",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.850493172346, 1.27769582253088]
+            },
+            "properties": {
+                "id": "TE19",
+                "name": "SHENTON WAY",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.785214276696, 1.44908408346462]
+            },
+            "properties": {
+                "id": "TE1, RTS",
+                "name": "WOODLANDS NORTH",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.863194363307, 1.27406667571693]
+            },
+            "properties": {
+                "id": "TE21",
+                "name": "MARINA SOUTH",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.867607320753, 1.27862598919158]
+            },
+            "properties": {
+                "id": "TE22",
+                "name": "GARDENS BY THE BAY",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.86904902642, 1.29090504400465]
+            },
+            "properties": {
+                "id": "TE22A",
+                "name": "FOUNDERS' MEMORIAL",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.873439398655, 1.29713969407169]
+            },
+            "properties": {
+                "id": "TE23",
+                "name": "TANJONG RHU",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.885624383878, 1.29780721946166]
+            },
+            "properties": {
+                "id": "TE24",
+                "name": "KATONG PARK",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.897314371045, 1.29913275971781]
+            },
+            "properties": {
+                "id": "TE25",
+                "name": "TANJONG KATONG",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.905017805766, 1.30247017870594]
+            },
+            "properties": {
+                "id": "TE26",
+                "name": "MARINE PARADE",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.914978523534, 1.30669619756436]
+            },
+            "properties": {
+                "id": "TE27",
+                "name": "MARINE TERRACE",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.929833496163, 1.30974207821569]
+            },
+            "properties": {
+                "id": "TE28",
+                "name": "SIGLAP",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.94186663653, 1.31286955054771]
+            },
+            "properties": {
+                "id": "TE29",
+                "name": "BAYSHORE",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.792887162794, 1.42749565439267]
+            },
+            "properties": {
+                "id": "TE3",
+                "name": "WOODLANDS SOUTH",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.949191842688, 1.3164099938116]
+            },
+            "properties": {
+                "id": "TE30",
+                "name": "BEDOK SOUTH",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.81776000956, 1.3987125092042]
+            },
+            "properties": {
+                "id": "TE4",
+                "name": "SPRINGLEAF",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.835709635357, 1.38560339787789]
+            },
+            "properties": {
+                "id": "TE5",
+                "name": "LENTOR",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.836809220104, 1.37111526645712]
+            },
+            "properties": {
+                "id": "TE6",
+                "name": "MAYFLOWER",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.83524215517, 1.36363181548529]
+            },
+            "properties": {
+                "id": "TE7, CR13",
+                "name": "BRIGHT HILL",
+                "type": "MRT"
+           }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.83200786043, 1.3547536057722]
+            },
+            "properties": {
+                "id": "TE8",
+                "name": "UPPER THOMSON",
+                "type": "MRT"
+           }
+        }
+    ]
+}

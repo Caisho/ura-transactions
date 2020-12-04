@@ -1,0 +1,341 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.855291, 1.282282]
+            },
+            "properties": {
+                "name": "01",
+                "postal-sector": "01, 02, 03, 04, 05, 06",
+                "location": "Raffles Place, Cecil, Marina, People's Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.842728, 1.273553]
+            },
+            "properties": {
+                "name": "02",
+                "postal-sector": "07, 08",
+                "location": "Anson, Tanjong Pagar"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.817598, 1.288088]
+            },
+            "properties": {
+                "name": "03",
+                "postal-sector": "14, 15, 16",
+                "location": "Queenstown, Tiong Bahru"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.815304, 1.276253]
+            },
+            "properties": {
+                "name": "04",
+                "postal-sector": "09, 10",
+                "location": "Telok Blangah, Harbourfront"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.777858, 1.296561]
+            },
+            "properties": {
+                "name": "05",
+                "postal-sector": "11, 12, 13",
+                "location": "Pasir Panjang, Hong Leong Garden, Clementi New Town"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.848985, 1.292748]
+            },
+            "properties": {
+                "name": "06",
+                "postal-sector": "17",
+                "location": "High Street, Beach Road (part)"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.857985, 1.300644]
+            },
+            "properties": {
+                "name": "07",
+                "postal-sector": "18, 19",
+                "location": "Middle Road, Golden Mile"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.854502, 1.312457]
+            },
+            "properties": {
+                "name": "08",
+                "postal-sector": "20, 21",
+                "location": "Little India"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.838180, 1.301630]
+            },
+            "properties": {
+                "name": "09",
+                "postal-sector": "22, 23",
+                "location": "Orchard, Cairnhill, River Valley"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.810610, 1.313163]
+            },
+            "properties": {
+                "name": "10",
+                "postal-sector": "24, 25, 26, 27",
+                "location": "Ardmore, Bukit Timah, Holland Road, Tanglin"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.816546, 1.335873]
+            },
+            "properties": {
+                "name": "11",
+                "postal-sector": "28, 29, 30",
+                "location": "Watten Estate, Novena, Thomson"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.857982, 1.328585]
+            },
+            "properties": {
+                "name": "12",
+                "postal-sector": "31, 32, 33",
+                "location": "Balestier, Toa Payoh, Serangoon"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.875939, 1.333468]
+            },
+            "properties": {
+                "name": "13",
+                "postal-sector": "34, 35, 36, 37",
+                "location": "Macpherson, Braddell"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.897601, 1.328289]
+            },
+            "properties": {
+                "name": "14",
+                "postal-sector": "38, 39, 40, 41",
+                "location": "Geylang, Eunos"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.901798, 1.309002]
+            },
+            "properties": {
+                "name": "15",
+                "postal-sector": "42, 43, 44, 45",
+                "location": "Katong, Joo Chiat, Amber Road"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.946226, 1.327170]
+            },
+            "properties": {
+                "name": "16",
+                "postal-sector": "46, 47, 48",
+                "location": "Bedok, Upper East Coast, Eastwood, Kew Drive"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.996452, 1.349598]
+            },
+            "properties": {
+                "name": "17",
+                "postal-sector": "49, 50, 81",
+                "location": "Loyang, Changi"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.942160, 1.363724]
+            },
+            "properties": {
+                "name": "18",
+                "postal-sector": "51, 52",
+                "location": "Tampines, Pasir Ris"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.894316, 1.366430]
+            },
+            "properties": {
+                "name": "19",
+                "postal-sector": "53, 54, 55, 82",
+                "location": "Serangoon Garden, Hougang, Ponggol"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.831118, 1.362954]
+            },
+            "properties": {
+                "name": "20",
+                "postal-sector": "56, 57",
+                "location": "Bishan, Ang Mo Kio"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.774081, 1.340222]
+            },
+            "properties": {
+                "name": "21",
+                "postal-sector": "58, 59",
+                "location": "Upper Bukit Timah, Clementi Park, Ulu Pandan"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.6831121, 1.335140]
+            },
+            "properties": {
+                "name": "22",
+                "postal-sector": "60, 61, 62, 63, 64",
+                "location": "Jurong"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.7563051, 1.371930]
+            },
+            "properties": {
+                "name": "23",
+                "postal-sector": "65, 66, 67, 68",
+                "location": "Hillview, Dairy Farm, Bukit Panjang, Choa Chu Kang"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.700178, 1.405097]
+            },
+            "properties": {
+                "name": "24",
+                "postal-sector": "69, 70, 71",
+                "location": "Lim Chu Kang, Tengah"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.775682, 1.428864]
+            },
+            "properties": {
+                "name": "25",
+                "postal-sector": "72, 73",
+                "location": "Kranji, Woodgrove"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.821786, 1.397087]
+            },
+            "properties": {
+                "name": "26",
+                "postal-sector": "77, 78",
+                "location": "Upper Thomson, Springleaf"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.831881, 1.432900]
+            },
+            "properties": {
+                "name": "27",
+                "postal-sector": "75, 76",
+                "location": "Yishun, Sembawang"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [103.865655, 1.399917]
+            },
+            "properties": {
+                "name": "28",
+                "postal-sector": "79, 80",
+                "location": "Seletar"
+            }
+        }
+    ]
+}

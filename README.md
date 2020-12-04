@@ -1,5 +1,5 @@
 ## URA Private Residential Property Transactions
-Display URA private residential property transactions in a easy to view and filter Streamlit application to draw insights and trends. 
+Display URA private residential property transactions in an easy to view and filter Streamlit application to draw insights and trends. 
 
 
 ## Installation
@@ -60,7 +60,7 @@ MAPBOX_API_KEY=my-api-key
 
 ### Get geojson data files
 
-TODO setup public location for Singapore MRT and postal districts data files.
+Coordinate information for Singapore's MRT and postal districts are presently stored in `/data/ folder but this will be moved to public data repository in the future. The geojson data is used to generate point and polygon features in maps.
 
 ## Run the streamlit application
 

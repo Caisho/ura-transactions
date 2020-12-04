@@ -5,6 +5,4 @@ flake8
 setuptools
 psycopg2>=2.8.4
 streamlit
-pylint
-dvc==1.10.2
 altair
