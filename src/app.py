@@ -10,7 +10,7 @@ LOGGER = logging.getLogger(__name__)
 
 load_dotenv()
 LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')
-MAPBOX_STYLE = os.getenv('MAPBOX_STYLE')
+MAPBOX_STYLE = os.getenv('MAPBOX_STYLE', 'mapbox://styles/caisho/ckhzpiwfm1x7419pujepchs2x')
 AREA_TYPES = get_area_type_labels()
 PROPERTY_TYPES = get_property_type_labels()
 TRANSACTION_YEARS = get_contract_date_years()
