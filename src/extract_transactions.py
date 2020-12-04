@@ -5,7 +5,7 @@ import datetime
 from dotenv import load_dotenv
 import psycopg2 as pg
 from update_coordinates import update_project_coordinates
-from postgres_utils import update_proj_mrt_coordinates
+from postgres_utils import update_proj_mrt_coordinates, extract_mrt_coordinates, extract_postal_districts
 from utils import get_tenure_type
 
 load_dotenv()
@@ -121,6 +121,8 @@ def format_date(dt_str):
 
 if __name__ == '__main__':
     token = get_token(URA_TOKEN_URL, URA_ACCESS_KEY)
+    extract_postal_districts()
+    extract_mrt_coordinates
     for i in range(1, 5, 1):
         print(f'batch = {i}')
         result = get_private_residential_transactions(URA_PROPERTY_URL, URA_ACCESS_KEY, token, batch=i)

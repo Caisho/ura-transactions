@@ -73,7 +73,7 @@ def create_postal_districts_table():
 
 
 def create_projects_table():
-    query = (
+    query1 = (
         'CREATE TABLE public.private_residential_property_projects ('
         '    project varchar NOT NULL,'
         '    street varchar NOT NULL,'
@@ -87,11 +87,17 @@ def create_projects_table():
         '    CONSTRAINT private_residential_property_projects_pk PRIMARY KEY (project, street)'
         ');'
     )
+    query2 = (
+        'ALTER TABLE public.private_residential_property_projects '
+        'ADD CONSTRAINT private_residential_property_projects_fk FOREIGN KEY (mrt_name, mrt_id) '
+        'REFERENCES mrt(name, id);'
+    )
     conn = None
     try:
         conn = pg.connect(**params)
         cur = conn.cursor()
-        cur.execute(query)
+        cur.execute(query1)
+        cur.execute(query2)
         conn.commit()
         cur.close()
     except (pg.Error) as e:
@@ -129,12 +135,16 @@ def create_transactions_table():
         'ADD CONSTRAINT private_residential_property_transactions_fk FOREIGN KEY (project, street) '
         'REFERENCES private_residential_property_projects(project, street);'
     )
+    query3 = (
+        'CREATE INDEX private_residential_property_transactions_project_idx ON public.private_residential_property_transactions USING btree (project, street);'
+    )
     conn = None
     try:
         conn = pg.connect(**params)
         cur = conn.cursor()
         cur.execute(query1)
         cur.execute(query2)
+        cur.execute(query3)
         conn.commit()
         cur.close()
     except (pg.Error) as e:
@@ -147,5 +157,7 @@ def create_transactions_table():
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
 
+    create_postal_districts_table()
+    create_mrt_table()
     create_projects_table()
     create_transactions_table()
