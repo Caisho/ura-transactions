@@ -59,6 +59,10 @@ MAPBOX_STYLE=mapbox://styles/caisho/ckhzpiwfm1x7419pujepchs2x
 MAPBOX_API_KEY=my-api-key
 ```
 
+### Install Docker Compose
+Docker and Docker Compose is needed to run the Postgres DB for storing transaction and project data. Follow the instructions at [docker docs](https://docs.docker.com/compose/install/) to install Docker Compose. 
+
+
 ### Get geojson data files
 
 Coordinate information for Singapore's MRT and postal districts are presently stored in `/data/ folder but this will be moved to public data repository in the future. The geojson data is used to generate point and polygon features in maps.
