@@ -1,6 +1,7 @@
 ## URA Private Residential Property Transactions
 Display URA private residential property transactions in an easy to view and filter Streamlit application to draw insights and trends. 
 
+![alt text](https://github.com/Caisho/ura-transactions/blob/master/static/app-preview.png)
 
 ## Installation
 Git clone ura-transactions repository
