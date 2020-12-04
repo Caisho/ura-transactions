@@ -1,4 +1,5 @@
-## Introduction
+## URA Private Residential Property Transactions
+Display URA private residential property transactions in a easy to view and filter Streamlit application to draw insights and trends. 
 
 
 ## Installation
@@ -14,6 +15,7 @@ Setup conda or python virtual environment to install packages.
 cd ura-transactions
 # if using conda env
 conda env create -f environment.yml
+conda activate ura
 pip install -r requirements.txt
 # if using python venv
 python -m venv venv
@@ -30,7 +32,7 @@ To get a token for yourself, create an account at https://mapbox.com. It’s fre
 
 
 ### Setup Env file
-Create `.env` in root directory with the key-value pairs below. Friendly reminder to get your own URA Access Key and Mapbox API token. 
+Create `.env` in root directory with the key-value pairs below. Friendly reminder to get your own URA access key and Mapbox API token. 
 ```
 # Logging
 LOG_LEVEL=INFO
@@ -58,9 +60,9 @@ MAPBOX_API_KEY=my-api-key
 
 ### Get geojson data files
 
-Public Data location
+TODO setup public location for Singapore MRT and postal districts data files.
 
-## Running
+## Run the streamlit application
 
 ```bash
 cd ura-transactions
@@ -69,6 +71,7 @@ python migrate.py
 python streamlit run src/app.py
 ```
 
+
 ## More Information
-
-
+- [URA API reference](https://www.ura.gov.sg/maps/api/#private-residential-property) used to download past 5 years of private residential property transactions 
+- [OneMap API reference](https://docs.onemap.sg/) used to get WGS84 longitude and latitude coordinates for private residential property projects.
