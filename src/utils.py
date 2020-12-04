@@ -1,4 +1,32 @@
 import math
+import datetime
+
+
+def format_date(dt_str):
+    dt = datetime.datetime.strptime(dt_str, '%m%y')
+    return dt
+
+
+def convert_abbreviation(short_string):
+    """ Convert ST. to 'SAINT'
+
+    Args:
+        short_string (str): string
+
+    Returns:
+        [str]: long form of the abbreviated string
+    """
+    delim = ' '
+    if short_string is None:
+        return None
+    tokens = short_string.split(delim)
+    full_string = ''
+    for token in tokens:
+        if token == 'ST.':
+            full_string += 'SAINT' + delim
+        else:
+            full_string += token + delim
+    return full_string.strip()
 
 
 def get_tenure_type(tenure):
