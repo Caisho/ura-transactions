@@ -11,16 +11,15 @@ from utils import get_tenure_type, convert_abbreviation, format_date
 LOGGER = logging.getLogger(__name__)
 
 load_dotenv()
-LOG_LEVEL = os.getenv('LOG_LEVEL')
+LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')
 URA_ACCESS_KEY = os.getenv('URA_ACCESS_KEY')
-URA_TOKEN_URL = os.getenv('URA_TOKEN_URL')
-URA_PROPERTY_URL = os.getenv('URA_PROPERTY_URL')
-ONEMAP_URL = os.getenv('ONEMAP_URL')
-POSTGRES_DB = os.getenv('POSTGRES_DB')
-POSTGRES_USER = os.getenv('POSTGRES_USER')
-POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
-POSTGRES_HOST = os.getenv('POSTGRES_HOST')
-POSTGRES_PORT = os.getenv('POSTGRES_PORT')
+URA_TOKEN_URL = os.getenv('URA_TOKEN_URL', 'https://www.ura.gov.sg/uraDataService/insertNewToken.action')
+URA_PROPERTY_URL = os.getenv('URA_PROPERTY_URL', 'https://www.ura.gov.sg/uraDataService/invokeUraDS')
+POSTGRES_DB = os.getenv('POSTGRES_DB', 'postgres')
+POSTGRES_USER = os.getenv('POSTGRES_USER', 'postgres')
+POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD', 'postgres')
+POSTGRES_HOST = os.getenv('POSTGRES_HOST', 'localhost')
+POSTGRES_PORT = os.getenv('POSTGRES_PORT', '5432')
 
 params = {
     'host': POSTGRES_HOST,

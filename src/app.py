@@ -2,14 +2,15 @@ import logging
 import os
 import streamlit as st
 import pydeck as pdk
-import pandas as pd
 import altair as alt
-from postgres_utils import get_property_type_labels, get_contract_date_years, get_tenure_type_labels, get_area_type_labels, get_transactions_data, get_postal_districts_data, get_sale_type_labels, get_floor_range_labels, get_transactions_mrt_data, get_mrt_name_labels
+from dotenv import load_dotenv
+from postgres_utils import get_property_type_labels, get_contract_date_years, get_tenure_type_labels, get_area_type_labels, get_postal_districts_data, get_sale_type_labels, get_floor_range_labels, get_transactions_mrt_data, get_mrt_name_labels
 
 LOGGER = logging.getLogger(__name__)
 
-LOG_LEVEL = os.getenv('LOG_LEVEL')
-MAPBOX_STYLE = 'mapbox://styles/caisho/ckhzpiwfm1x7419pujepchs2x'
+load_dotenv()
+LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')
+MAPBOX_STYLE = os.getenv('MAPBOX_STYLE')
 AREA_TYPES = get_area_type_labels()
 PROPERTY_TYPES = get_property_type_labels()
 TRANSACTION_YEARS = get_contract_date_years()
