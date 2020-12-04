@@ -1,7 +1,8 @@
 import streamlit as st
 import pydeck as pdk
 import pandas as pd
-from postgres_utils import get_property_type_labels, get_contract_date_years, get_tenure_type_labels, get_area_type_labels, get_transactions_data, get_postal_districts_data, get_sale_type_labels, get_floor_range_labels, get_transactions_mrt_data
+import altair as alt
+from postgres_utils import get_property_type_labels, get_contract_date_years, get_tenure_type_labels, get_area_type_labels, get_transactions_data, get_postal_districts_data, get_sale_type_labels, get_floor_range_labels, get_transactions_mrt_data, get_mrt_name_labels
 
 MAPBOX_STYLE = 'mapbox://styles/caisho/ckhzpiwfm1x7419pujepchs2x'
 AREA_TYPES = get_area_type_labels()
@@ -10,7 +11,7 @@ TRANSACTION_YEARS = get_contract_date_years()
 TENURE_TYPES = get_tenure_type_labels()
 SALE_TYPES = get_sale_type_labels()
 FLOOR_RANGE_TYPES = get_floor_range_labels()
-
+MRT_NAME_TYPES = get_mrt_name_labels()
 
 @st.cache
 def get_postgres_transactions_data():
@@ -20,6 +21,24 @@ def get_postgres_transactions_data():
 @st.cache
 def get_postgres_districts_data():
     return get_postal_districts_data()
+
+
+def aggregate_data(df, by):
+    df_agg = df.groupby(by).agg(
+        {'no_of_units': 'sum',
+         'area': 'sum',
+         'price': 'sum'
+         })
+    df_agg['area_mean'] = df_agg['area'] / df_agg['no_of_units']
+    df_agg['price_mean'] = df_agg['price'] / df_agg['no_of_units']
+    df_agg['psf_mean'] = df_agg['price'] / df_agg['area']
+    return df_agg[['no_of_units', 'area_mean', 'price_mean', 'psf_mean']]
+
+
+def compare_data(df, where, isin):
+    df = df.reset_index()
+    df_comp = df.loc[df[where].isin(isin)]
+    return df_comp
 
 
 # Sidebar
@@ -68,6 +87,11 @@ floor_range_type = st.sidebar.multiselect(
     default=FLOOR_RANGE_TYPES,
 )
 
+mrt_name_type = st.sidebar.multiselect(
+    label='Select MRT stations to compare',
+    options=MRT_NAME_TYPES,
+    default=['SIGLAP']
+)
 
 # Body
 st.title('URA Private Residential Property Transactions')
@@ -88,17 +112,32 @@ st.subheader('Individual Transactions')
 st.write(df_filtered)
 st.write(f'Total Transactions: {len(df_filtered)}')
 
-df_district_grp = df_filtered.groupby(['district']).mean()
+st.subheader('Transactions by District')
+df_district_grp = aggregate_data(df_filtered, ['district'])
+st.write(df_district_grp)
+
+st.subheader('Transactions by MRT')
+df_mrt_grp = aggregate_data(df_filtered, ['mrt_name', 'contract_year'])
+st.write(df_mrt_grp)
+
+st.subheader('Average PSF by MRT and Year')
+df_mrt_comp = compare_data(df_mrt_grp, 'mrt_name', mrt_name_type)
+c = alt.Chart(df_mrt_comp).mark_bar().encode(
+    x='contract_year:O',
+    y='psf_mean:Q',
+    color='contract_year:N',
+    column='mrt_name:N'
+)
+st.altair_chart(c, use_container_width=False)
+
+
 df_districts = get_postgres_districts_data()
 df_districts = df_districts.set_index('district')
 df_map = df_districts.join(df_district_grp, how='inner', on='district')
-df_map['psf'] = df_map['psf'].to_numpy().astype('int').astype('str')  # hack to get it to work
-df_map['psf'] = df_map['psf'] + 'psf'
-
+df_map['psf_mean'] = df_map['psf_mean'].to_numpy().astype('int').astype('str')  # hack to get it to work
+df_map['psf_mean'] = df_map['psf_mean'] + 'psf'
 df_map['latitude'] = df_map['latitude'] - 0.002
 
-df_mrt_grp = df_filtered.groupby(['mrt_name']).mean()
-st.write(df_mrt_grp)
 
 st.subheader('Average PSF by District')
 st.pydeck_chart(pdk.Deck(
@@ -114,7 +153,7 @@ st.pydeck_chart(pdk.Deck(
             'TextLayer',
             data=df_map,
             get_position='[longitude, latitude]',  # must be numeric
-            get_text='psf',  # must be varchar
+            get_text='psf_mean',  # must be varchar
             get_color=[200, 30, 0, 160],
             get_size=20,
             get_alignment_baseline="'top'",
