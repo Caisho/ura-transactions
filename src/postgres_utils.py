@@ -1,9 +1,12 @@
 import os
 import json
+import logging
 from dotenv import load_dotenv
 import psycopg2 as pg
 import pandas as pd
 from utils import get_coordinates_distance
+
+LOGGER = logging.getLogger(__name__)
 
 load_dotenv()
 POSTGRES_DB = os.getenv('POSTGRES_DB')
@@ -33,7 +36,7 @@ def get_mrt_data():
         conn = pg.connect(**params)
         df = pd.read_sql(query, con=conn)
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn:
             conn.close()
@@ -51,7 +54,7 @@ def get_postal_districts_data():
         conn = pg.connect(**params)
         df = pd.read_sql(query, con=conn)
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn:
             conn.close()
@@ -69,7 +72,7 @@ def get_transactions_data():
         conn = pg.connect(**params)
         df = pd.read_sql(query, con=conn)
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn:
             conn.close()
@@ -89,7 +92,7 @@ def get_transactions_mrt_data():
         conn = pg.connect(**params)
         df = pd.read_sql(query, con=conn)
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn:
             conn.close()
@@ -106,7 +109,7 @@ def get_contract_date_years():
         cur.execute(query)
         records = cur.fetchall()
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn:
             cur.close()
@@ -124,7 +127,7 @@ def get_mrt_name_labels():
         cur.execute(query)
         records = cur.fetchall()
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn:
             cur.close()
@@ -142,7 +145,7 @@ def get_area_type_labels():
         cur.execute(query)
         records = cur.fetchall()
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn:
             cur.close()
@@ -160,7 +163,7 @@ def get_property_type_labels():
         cur.execute(query)
         records = cur.fetchall()
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn:
             cur.close()
@@ -178,7 +181,7 @@ def get_sale_type_labels():
         cur.execute(query)
         records = cur.fetchall()
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn:
             cur.close()
@@ -196,7 +199,7 @@ def get_floor_range_labels():
         cur.execute(query)
         records = cur.fetchall()
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn:
             cur.close()
@@ -214,7 +217,7 @@ def get_tenure_type_labels():
         cur.execute(query)
         records = cur.fetchall()
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn:
             cur.close()
@@ -253,7 +256,7 @@ def extract_postal_districts(path='./data/ura-postal-districts/ura-postal-distri
                 cur.execute(query, (name, latitude, longitude, postal, location))
             conn.commit()
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn:
             cur.close()
@@ -296,7 +299,7 @@ def extract_mrt_coordinates(path='./data/mrt/rail-station-point.geojson'):
                 cur.execute(query, (mrt_id, mrt_name, mrt_type, longitude, latitude))
             conn.commit()
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn:
             cur.close()
@@ -325,6 +328,10 @@ def update_proj_mrt_coordinates():
         proj_records = cur.fetchall()
         cur.execute(mrt_query)
         mrt_records = cur.fetchall()
+        if not proj_records:
+            LOGGER.warning('No project records found, check private_residential_property_projects DB table')
+        if not mrt_records:
+            LOGGER.warning('No mrt records found, check mrt DB table')
 
         for proj in proj_records:
             proj_name = proj[0]
@@ -349,11 +356,11 @@ def update_proj_mrt_coordinates():
                             closest_mrt_id = mrt[0]
                             closest_mrt_name = mrt[1]
                             closest_mrt_dist = dist
-                    print(proj[0], closest_mrt_id, closest_mrt_name, closest_mrt_dist)
+                    LOGGER.debug(proj[0], closest_mrt_id, closest_mrt_name, closest_mrt_dist)
                     cur.execute(insert_query, (closest_mrt_id, closest_mrt_name, closest_mrt_dist, proj_name, proj_street))
         conn.commit()
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn:
             cur.close()

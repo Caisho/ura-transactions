@@ -1,9 +1,14 @@
+import logging
+import os
 import streamlit as st
 import pydeck as pdk
 import pandas as pd
 import altair as alt
 from postgres_utils import get_property_type_labels, get_contract_date_years, get_tenure_type_labels, get_area_type_labels, get_transactions_data, get_postal_districts_data, get_sale_type_labels, get_floor_range_labels, get_transactions_mrt_data, get_mrt_name_labels
 
+LOGGER = logging.getLogger(__name__)
+
+LOG_LEVEL = os.getenv('LOG_LEVEL')
 MAPBOX_STYLE = 'mapbox://styles/caisho/ckhzpiwfm1x7419pujepchs2x'
 AREA_TYPES = get_area_type_labels()
 PROPERTY_TYPES = get_property_type_labels()
@@ -12,6 +17,9 @@ TENURE_TYPES = get_tenure_type_labels()
 SALE_TYPES = get_sale_type_labels()
 FLOOR_RANGE_TYPES = get_floor_range_labels()
 MRT_NAME_TYPES = get_mrt_name_labels()
+
+logging.basicConfig(level=LOG_LEVEL)
+
 
 @st.cache
 def get_postgres_transactions_data():

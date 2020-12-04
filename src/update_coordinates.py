@@ -1,8 +1,11 @@
 import os
+import logging
 import requests
 from dotenv import load_dotenv
 import psycopg2 as pg
 from utils import get_tenure_type
+
+LOGGER = logging.getLogger(__name__)
 
 load_dotenv()
 URA_ACCESS_KEY = os.getenv('URA_ACCESS_KEY')
@@ -58,7 +61,7 @@ def get_transactions_table():
         cur.execute(query)
         records = cur.fetchall()
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn:
             cur.close()
@@ -76,7 +79,7 @@ def get_projects_table():
         cur.execute(query)
         records = cur.fetchall()
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn:
             cur.close()
@@ -96,7 +99,9 @@ def update_project_coordinates():
         'SET latitude = %s, longitude = %s '
         'WHERE project = %s AND street = %s AND x = %s AND y = %s;'
         )
-    if projects:
+    if not projects:
+        LOGGER.warning('No project records found, check private_residential_property_projects DB table')
+    else:
         conn = None
         try:
             conn = pg.connect(**params)
@@ -110,7 +115,7 @@ def update_project_coordinates():
                 longitude = record[5]
 
                 if (None in [x, y]) or ('' in [x, y]):
-                    print(f'No XY found - {record}')
+                    LOGGER.debug(f'No XY found - {record}')
                     street_coord = get_street_coordinates(street)
                     if street_coord:
                         x = street_coord[0].get('X')
@@ -118,21 +123,25 @@ def update_project_coordinates():
                         latitude = street_coord[0].get('LATITUDE')
                         longitude = street_coord[0].get('LONGITUDE')
                         cur.execute(query1, (x, y, latitude, longitude, project, street))
+                    else: 
+                        LOGGER.warning(f'OneMap street search returned empty list - {street}')
 
                 if (None in [latitude, longitude]) or ('' in [latitude, longitude]):
-                    print(f'No long lat found - {record}')
+                    LOGGER.debug(f'No long lat found - {record}')
                     wgs84_coord = get_xy_coordinates(x, y)
                     if wgs84_coord:
                         latitude = wgs84_coord.get('latitude')
                         longitude = wgs84_coord.get('longitude')
                         cur.execute(query2, (latitude, longitude, project, street, x, y))
+                    else:
+                        LOGGER.warning(f'OneMap coordinates search returned empty list - {(x, y)}')
             conn.commit()
         except (pg.Error) as e:
-            print(e)
+            LOGGER.exception(e)
         finally:
             if conn:
                 cur.close()
-                conn.close()
+                conn.close()        
 
 
 def update_transactions_tenure():
@@ -160,12 +169,13 @@ def update_transactions_tenure():
             tenure_type = record[8]
 
             if tenure_type is None:
+                LOGGER.debug(f'No tenure type found - {record}')
                 tenure_type = get_tenure_type(tenure)
                 values = (tenure_type, project, street, area, floor_range, contract_date, type_of_sale, price)
                 cur.execute(query, values)
         conn.commit()
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn:
             cur.close()
