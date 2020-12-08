@@ -41,7 +41,7 @@ def create_mrt_table():
         conn.commit()
         cur.close()
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn is not None:
             conn.close()
@@ -66,7 +66,7 @@ def create_postal_districts_table():
         conn.commit()
         cur.close()
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn is not None:
             conn.close()
@@ -101,7 +101,7 @@ def create_projects_table():
         conn.commit()
         cur.close()
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn is not None:
             conn.close()
@@ -148,7 +148,7 @@ def create_transactions_table():
         conn.commit()
         cur.close()
     except (pg.Error) as e:
-        print(e)
+        LOGGER.exception(e)
     finally:
         if conn is not None:
             conn.close()
