@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 LOGGER = logging.getLogger(__name__)
 
 load_dotenv()
+LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')
 POSTGRES_DB = os.getenv('POSTGRES_DB', 'postgres')
 POSTGRES_USER = os.getenv('POSTGRES_USER', 'postgres')
 POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD', 'postgres')
@@ -155,7 +156,7 @@ def create_transactions_table():
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=LOG_LEVEL)
 
     create_postal_districts_table()
     create_mrt_table()
